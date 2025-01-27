@@ -107,12 +107,12 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <a href="mailto:customercare@trucklagbe.com" className="text-gray-600 hover:text-gray-900">
-                  customercare@trucklagbe.com
+                  customercare@truckkoi.com
                 </a>
               </li>
               <li>
                 <a href="tel:+8809638000245" className="text-gray-600 hover:text-gray-900">
-                  +৮৮০ ৯৬৩৮ ০০০ ২৪৫
+                  +৮৮০ ৯৬৩৮ ০০০ ০০০
                 </a>
               </li>
               <li className="flex gap-4 pt-4">
@@ -193,9 +193,9 @@ export default function Footer() {
                   height={40}
                   className="rounded-full"
                 />
-                <span className="text-xl font-bold">Truck Lagbe</span>
+                <span className="text-xl font-bold">ট্রাক কই</span>
               </Link>
-              <p className="text-sm text-gray-600">কপিরাইট © ট্রাক লাগবে লিমিটেড । সর্বস্বত্ব সংরক্ষিত</p>
+              <p className="text-sm text-gray-600"> © ২০২৫ ট্রাক কই লিমিটেড । সর্বস্বত্ব সংরক্ষিত</p>
             </div>
 
             {/* Download Apps */}

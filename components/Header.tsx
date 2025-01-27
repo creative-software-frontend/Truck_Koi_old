@@ -14,7 +14,7 @@ const Header = () => {
             height={40}
             className="rounded-full"
           />
-          <span className="text-xl font-bold">Truck Lagbe</span>
+          <span className="text-xl font-bold">ট্রাক কই</span>
         </Link>
 
         <div className="hidden md:flex items-center gap-6">
