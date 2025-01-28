@@ -3,6 +3,9 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, Download } from "lucide-react";
+import img1 from '@/assests/banner/home_banner_1.webp'
+import img2 from '@/assests/banner/home_banner_2.webp'
+import img3 from '@/assests/banner/home_banner_3.webp'
 import Image from "next/image";
 
 // Updated paths for public folder
@@ -10,19 +13,19 @@ const bannerSlides = [
     {
         title: "সুরক্ষিত ডেলিভারি",
         subtitle: "আপনার ডেলিভারি নিরাপদে পৌঁছে দিন",
-        image: "/assets/banner/home_banner_1.webp", // Public folder path
+        image: img1, // Public folder path
         buttonText: "অ্যাপ ডাউনলোড করুন",
     },
     {
         title: "দ্রুত পরিবহন",
         subtitle: "সময়মত আপনার মালামাল পৌঁছে দিন",
-        image: "/assets/banner/home_banner_2.webp", // Public folder path
+        image: img2, // Public folder path
         buttonText: "অ্যাপ ডাউনলোড করুন",
     },
     {
         title: "সহজ বুকিং",
         subtitle: "যেকোনো সময় ট্রাক বুক করুন",
-        image: "/assets/banner/home_banner_3.webp", // Public folder path
+        image: img3, // Public folder path
         buttonText: "অ্যাপ ডাউনলোড করুন",
     },
 ];
@@ -65,18 +68,11 @@ export default function Banner() {
                         </div>
 
                         {/* Right Image */}
-                        <div className="hidden md:block absolute right-0 top-0 w-1/2 h-full">
+                        <div className="hidden md:block absolute right-0 top-0 w-full h-full">
                             {/* <div className="absolute inset-0 z-10 flex items-center justify-center">
                                 <div className="text-white text-opacity-20 text-[120px] font-bold transform -rotate-90">ট্রাক লাগবে</div>
                             </div> */}
-                            <Image
-                                src={slide.image}
-                                alt="Bannerrrrrrr"
-                                className="object-cover"
-                                fill
-                                sizes="(max-width: 768px) 100vw, 50vw"
-                            />
-
+                            <Image src={slide.image} alt="Banner" className="object-cover w-full h-full" />
                         </div>
                     </div>
                 </div>

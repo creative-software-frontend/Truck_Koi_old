@@ -1,6 +1,8 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import logo from "@/assests/footer/truck-lagbe-dark.svg"
+
 
 const Header = () => {
   return (
@@ -8,13 +10,13 @@ const Header = () => {
       <nav className="container mx-auto px-4 py-3 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src="/placeholder.svg?height=40&width=40"
+            src={logo}
             alt="Truck Lagbe"
-            width={40}
-            height={40}
+            width={200}
+            height={80}
             className="rounded-full"
           />
-          <span className="text-xl font-bold">Truck Lagbe</span>
+          {/* <span className="text-xl font-bold">Truck Lagbe</span> */}
         </Link>
 
         <div className="hidden md:flex items-center gap-6">
