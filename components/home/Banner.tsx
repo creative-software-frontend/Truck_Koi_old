@@ -1,64 +1,78 @@
-"use client";
+"use client"
 
-import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight, Download } from "lucide-react";
-import img1 from '@/assests/banner/home_banner_1.webp'
-import img2 from '@/assests/banner/home_banner_2.webp'
-import img3 from '@/assests/banner/home_banner_3.webp'
-import Image from "next/image";
+import { useState, useEffect } from "react"
+import { Button } from "@/components/ui/button"
+import { ChevronLeft, ChevronRight, Download } from "lucide-react"
+import img1 from "@/assests/banner/home_banner_1.webp"
+import img2 from "@/assests/banner/home_banner_2.webp"
+import img3 from "@/assests/banner/home_banner_3.webp"
+import Image from "next/image"
+import TruckHire from "./TruckHire"
 
-// Updated paths for public folder
 const bannerSlides = [
     {
         title: "সুরক্ষিত ডেলিভারি",
         subtitle: "আপনার ডেলিভারি নিরাপদে পৌঁছে দিন",
-        image: img1, // Public folder path
+        image: img1,
         buttonText: "অ্যাপ ডাউনলোড করুন",
     },
     {
         title: "দ্রুত পরিবহন",
         subtitle: "সময়মত আপনার মালামাল পৌঁছে দিন",
-        image: img2, // Public folder path
+        image: img2,
         buttonText: "অ্যাপ ডাউনলোড করুন",
     },
     {
         title: "সহজ বুকিং",
         subtitle: "যেকোনো সময় ট্রাক বুক করুন",
-        image: img3, // Public folder path
+        image: img3,
         buttonText: "অ্যাপ ডাউনলোড করুন",
     },
-];
+]
 
 export default function Banner() {
-    const [currentSlide, setCurrentSlide] = useState(0);
+    const [currentSlide, setCurrentSlide] = useState(0)
 
     useEffect(() => {
         const timer = setInterval(() => {
-            setCurrentSlide((prev) => (prev + 1) % bannerSlides.length);
-        }, 5000);
-        return () => clearInterval(timer);
-    }, []);
+            setCurrentSlide((prev) => (prev + 1) % bannerSlides.length)
+        }, 5000)
+        return () => clearInterval(timer)
+    }, [])
 
     const nextSlide = () => {
-        setCurrentSlide((prev) => (prev + 1) % bannerSlides.length);
-    };
+        setCurrentSlide((prev) => (prev + 1) % bannerSlides.length)
+    }
 
     const prevSlide = () => {
-        setCurrentSlide((prev) => (prev - 1 + bannerSlides.length) % bannerSlides.length);
-    };
+        setCurrentSlide((prev) => (prev - 1 + bannerSlides.length) % bannerSlides.length)
+    }
 
     return (
-        <div className="relative h-[500px] overflow-hidden ">
+        <div className="relative h-[500px] overflow-hidden">
             {bannerSlides.map((slide, index) => (
                 <div
                     key={index}
                     className={`absolute inset-0 transition-opacity duration-500 ${index === currentSlide ? "opacity-100" : "opacity-0"
                         }`}
                 >
-                    <div className="mx-auto px-4 h-full flex items-center">
-                        {/* Left Content */}
-                        <div className="w-full md:w-1/2 text-white z-10">
+                    {/* Background Image */}
+                    <Image
+                        src={slide.image || "/placeholder.svg"}
+                        alt="Banner"
+                        className="object-cover w-full h-full"
+                        layout="fill"
+                    />
+
+                    {/* Overlay for better text visibility */}
+                    <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+
+                    <div className="mx-auto px-4 h-full flex items-center relative z-10">
+                        {/* Left Content (TruckHire) */}
+
+
+                        {/* Right Content (Titles and Button) */}
+                        <div className="w-full md:w-1/2 text-white p-16">
                             <h1 className="text-5xl font-bold mb-4">{slide.title}</h1>
                             <p className="text-xl mb-8">{slide.subtitle}</p>
                             <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white flex items-center gap-2">
@@ -66,13 +80,8 @@ export default function Banner() {
                                 {slide.buttonText}
                             </Button>
                         </div>
-
-                        {/* Right Image */}
-                        <div className="hidden md:block absolute right-0 top-0 w-full h-full">
-                            {/* <div className="absolute inset-0 z-10 flex items-center justify-center">
-                                <div className="text-white text-opacity-20 text-[120px] font-bold transform -rotate-90">ট্রাক লাগবে</div>
-                            </div> */}
-                            <Image src={slide.image} alt="Banner" className="object-cover w-full h-full" />
+                        <div className="w-full md:w-1/2">
+                            <TruckHire />
                         </div>
                     </div>
                 </div>
@@ -84,8 +93,7 @@ export default function Banner() {
                     <button
                         key={index}
                         onClick={() => setCurrentSlide(index)}
-                        className={`w-2 h-2 rounded-full transition-all ${index === currentSlide ? "bg-white w-6" : "bg-white/50"
-                            }`}
+                        className={`w-2 h-2 rounded-full transition-all ${index === currentSlide ? "bg-white w-6" : "bg-white/50"}`}
                     />
                 ))}
             </div>
@@ -106,5 +114,6 @@ export default function Banner() {
                 <ChevronRight className="w-6 h-6 text-white" />
             </button>
         </div>
-    );
+    )
 }
+
