@@ -1,11 +1,13 @@
-import Banner from "@/components/Banner"
+import Banner from "@/components/home/Banner"
+import EarningSection from "@/components/home/EarningSection"
 
 
 export default function Home() {
   return (
     <div>
-   
+
       <Banner />
+      <EarningSection />
       {/* <div className="container mx-auto px-4 py-12 text-center">
         <h1 className="text-4xl font-bold mb-6">Welcome to the Dashboard</h1>
         <p className="mb-6">Please log in to access your personalized dashboard.</p>
@@ -13,7 +15,7 @@ export default function Home() {
           <Button size="lg">Log In</Button>
         </Link>
       </div> */}
-     
+
     </div>
   )
 }
