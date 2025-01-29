@@ -16,7 +16,11 @@ const Header = () => {
             height={80}
             className="rounded-full"
           />
+<<<<<<< HEAD:components/home/Header.tsx
           {/* <span className="text-xl font-bold">Truck Lagbe</span> */}
+=======
+          <span className="text-xl font-bold">ট্রাক কই</span>
+>>>>>>> 451358476c92ea70701753ba178f6d4a0d6064e2:components/Header.tsx
         </Link>
 
         <div className="hidden md:flex items-center gap-6">

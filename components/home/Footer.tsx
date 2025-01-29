@@ -108,6 +108,7 @@ export default function Footer() {
             <h3 className="font-bold text-xs mb-4">যোগাযোগ</h3>
             <ul className="space-y-2">
               <li>
+<<<<<<< HEAD:components/home/Footer.tsx
                 <a href="mailto:customercare@trucklagbe.com" className="text-gray-600 text-xs hover:text-gray-900">
                   customercare@trucklagbe.com
                 </a>
@@ -115,6 +116,15 @@ export default function Footer() {
               <li>
                 <a href="tel:+8809638000245" className="text-gray-600 text-xs hover:text-gray-900">
                   +৮৮০ ৯৬৩৮ ০০০ ২৪৫
+=======
+                <a href="mailto:customercare@trucklagbe.com" className="text-gray-600 hover:text-gray-900">
+                  customercare@truckkoi.com
+                </a>
+              </li>
+              <li>
+                <a href="tel:+8809638000245" className="text-gray-600 hover:text-gray-900">
+                  +৮৮০ ৯৬৩৮ ০০০ ০০০
+>>>>>>> 451358476c92ea70701753ba178f6d4a0d6064e2:components/Footer.tsx
                 </a>
               </li>
               <li className="flex gap-4 pt-4">
@@ -151,9 +161,15 @@ export default function Footer() {
                   height={60}
                   className="rounded-full"
                 />
+<<<<<<< HEAD:components/home/Footer.tsx
                 {/* <span className=" font-bold text-xs">Truck Lagbe</span> */}
               </Link>
               <p className=" text-gray-600 text-xs">কপিরাইট © ট্রাক লাগবে লিমিটেড । সর্বস্বত্ব সংরক্ষিত</p>
+=======
+                <span className="text-xl font-bold">ট্রাক কই</span>
+              </Link>
+              <p className="text-sm text-gray-600"> © ২০২৫ ট্রাক কই লিমিটেড । সর্বস্বত্ব সংরক্ষিত</p>
+>>>>>>> 451358476c92ea70701753ba178f6d4a0d6064e2:components/Footer.tsx
             </div>
 
             {/* Download Apps */}
