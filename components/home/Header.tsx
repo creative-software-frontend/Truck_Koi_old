@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
-import logo from "@/assests/footer/truck-lagbe-dark.svg"
+import logo from "@/assests/icon.png"
 
 
 const Header = () => {
@@ -12,7 +12,7 @@ const Header = () => {
           <Image
             src={logo}
             alt="Truck Lagbe"
-            width={200}
+            width={60}
             height={80}
             className="rounded-full"
           />

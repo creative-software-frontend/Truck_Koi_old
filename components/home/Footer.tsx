@@ -2,12 +2,55 @@ import Image from "next/image"
 import Link from "next/link"
 import { Facebook, Youtube, Linkedin, Instagram, Twitter } from "lucide-react"
 import paymentmode from '@/assests/footer/google-play-badge.png'
-import logo from '@/assests/footer/truck-lagbe-dark.svg'
+import logo from '@/assests/icon.png'
 
 export default function Footer() {
   return (
     <footer className="bg-white pt-10 pb-2 p-32 max-w-8xl mx-auto">
       <div className="container mx-auto px-4">
+
+        <div className="border-t border-gray-200 py-4 mt-4">
+          <h3 className="font-bold text-xs mb-2">ট্রাকের ক্যাটাগরি ও ভাড়াসমূহ</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+            <div>
+              <h4 className="font-semibold mb-3 text-xs">পিকআপ ট্রাক</h4>
+              <ul className="space-y-1 text-xs text-gray-600">
+                <li>৭ ফিট ১ টন</li>
+                <li>৯ ফিট ১.৫ টন</li>
+                <li>১২ ফিট ২ টন</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-3 text-xs">মাঝারী সাইজের ট্রাক</h4>
+              <ul className="space-y-1 text-xs text-gray-600">
+                <li>১৪ ফিট ৩.৫ টন</li>
+                <li>১৬ ফিট ৭.৫ টন</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-3 text-xs">বড় সাইজের ট্রাক</h4>
+              <ul className="space-y-1 text-xs text-gray-600">
+                <li>১৮ ফিট ১৫ টন</li>
+                <li>২০ ফিট ১৫ টন</li>
+                <li>২০ ফিট ২০ টন</li>
+                <li>২০ ফিট ২৫ টন</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-3 text-xs">ট্রেলার ট্রাক</h4>
+              <ul className="space-y-1 text-xs text-gray-600">
+                <li>ফ্ল্যাট - বেড ট্রেলার</li>
+                <li>লো - বেড ট্রেলার</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-3 text-xs">ট্রাকের এ্যাটাচমেন্ট</h4>
+              <ul className="space-y-1 text-xs text-gray-600">
+                <li>টাটা, অশোক লেইল্যান্ড, ইসুজু, মাহিন্দ্রা, ভ্যাক্স, জেএমসি, আইচার, মিটসুবিশি, ডেকভার্ড, পিওএন-এফ</li>
+              </ul>
+            </div>
+          </div>
+        </div>
         {/* Main Footer Links */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-4">
           {/* Services */}
@@ -138,6 +181,10 @@ export default function Footer() {
           </div>
         </div>
 
+
+
+
+        {/* Bottom Section */}
         {/* Truck Categories Section */}
         <div className="border-t border-gray-200 ">
           <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
@@ -147,11 +194,11 @@ export default function Footer() {
                 <Image
                   src={logo}
                   alt="Truck Lagbe"
-                  width={100}
-                  height={60}
+                  width={50}
+                  height={50}
                   className="rounded-full"
                 />
-                <span className="text-xl font-bold">ট্রাক কই</span>
+                <span className="text-sm font-bold">ট্রাক কই</span>
               </Link>
               <p className="text-sm text-gray-600"> © ২০২৫ ট্রাক কই লিমিটেড । সর্বস্বত্ব সংরক্ষিত</p>
             </div>
@@ -185,51 +232,6 @@ export default function Footer() {
                   </Link>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-
-
-        {/* Bottom Section */}
-        <div className="border-t border-gray-200 py-4 mt-4">
-          <h3 className="font-bold text-xs mb-2">ট্রাকের ক্যাটাগরি ও ভাড়াসমূহ</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-            <div>
-              <h4 className="font-semibold mb-3 text-xs">পিকআপ ট্রাক</h4>
-              <ul className="space-y-1 text-xs text-gray-600">
-                <li>৭ ফিট ১ টন</li>
-                <li>৯ ফিট ১.৫ টন</li>
-                <li>১২ ফিট ২ টন</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-3 text-xs">মাঝারী সাইজের ট্রাক</h4>
-              <ul className="space-y-1 text-xs text-gray-600">
-                <li>১৪ ফিট ৩.৫ টন</li>
-                <li>১৬ ফিট ৭.৫ টন</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-3 text-xs">বড় সাইজের ট্রাক</h4>
-              <ul className="space-y-1 text-xs text-gray-600">
-                <li>১৮ ফিট ১৫ টন</li>
-                <li>২০ ফিট ১৫ টন</li>
-                <li>২০ ফিট ২০ টন</li>
-                <li>২০ ফিট ২৫ টন</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-3 text-xs">ট্রেলার ট্রাক</h4>
-              <ul className="space-y-1 text-xs text-gray-600">
-                <li>ফ্ল্যাট - বেড ট্রেলার</li>
-                <li>লো - বেড ট্রেলার</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-3 text-xs">ট্রাকের এ্যাটাচমেন্ট</h4>
-              <ul className="space-y-1 text-xs text-gray-600">
-                <li>টাটা, অশোক লেইল্যান্ড, ইসুজু, মাহিন্দ্রা, ভ্যাক্স, জেএমসি, আইচার, মিটসুবিশি, ডেকভার্ড, পিওএন-এফ</li>
-              </ul>
             </div>
           </div>
         </div>
