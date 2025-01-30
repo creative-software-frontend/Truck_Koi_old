@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
-import logo from "@/assests/footer/truck-lagbe-dark.svg"
+import logo from "@/assests/icon.png"
 
 
 const Header = () => {
@@ -12,15 +12,11 @@ const Header = () => {
           <Image
             src={logo}
             alt="Truck Lagbe"
-            width={200}
+            width={60}
             height={80}
             className="rounded-full"
           />
-<<<<<<< HEAD:components/home/Header.tsx
-          {/* <span className="text-xl font-bold">Truck Lagbe</span> */}
-=======
           <span className="text-xl font-bold">ট্রাক কই</span>
->>>>>>> 451358476c92ea70701753ba178f6d4a0d6064e2:components/Header.tsx
         </Link>
 
         <div className="hidden md:flex items-center gap-6">
