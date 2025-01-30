@@ -4,7 +4,7 @@ import { MapPin, LocateFixed, ArrowDownCircle } from "lucide-react";
 
 const TruckHire = () => {
     return (
-        <div className="max-w-3xl mx-auto p-4 bg-white rounded-lg shadow-md">
+        <div className="max-w-2xl mx-auto p-4 bg-white rounded-lg shadow-md">
             <h2 className="text-lg font-semibold">Hire Your Truck</h2>
             <hr className="my-2" />
             <div className="flex items-center gap-2">

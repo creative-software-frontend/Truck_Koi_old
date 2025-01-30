@@ -33,7 +33,7 @@ export default function MobileAppPromo() {
                         ))}
                     </ul>
 
-                    <a
+                    {/* <a
                         href="https://play.google.com/store/apps/details?id=com.trucklagbe"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -46,7 +46,7 @@ export default function MobileAppPromo() {
                             height={48}
                             className="h-12 w-auto"
                         />
-                    </a>
+                    </a> */}
                 </div>
 
                 {/* Right Image */}
