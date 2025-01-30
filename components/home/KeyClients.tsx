@@ -5,7 +5,8 @@ import img1 from "@/assests/keyicons/icon-1.svg"
 import img2 from "@/assests/keyicons/icon-2.svg"
 import img3 from "@/assests/keyicons/icon-3.svg"
 import img4 from "@/assests/keyicons/icon-4.svg"
-import img5 from "@/assests/keyicons/icon-5.svg"
+// import img5 from "@/assests/keyicons/icon-5.svg"
+
 
 
 const clients = [
