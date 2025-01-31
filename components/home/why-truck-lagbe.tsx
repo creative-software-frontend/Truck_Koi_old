@@ -39,7 +39,7 @@ export default function WhyTruckLagbe() {
                 <div className="relative w-full h-[470px] rounded-2xl overflow-hidden bg-gradient-to-b from-red-600 to-red-700">
 
                     <Image
-                        // src={enposter}
+                        src={enposter}
                         alt="Truck Lagbe Service"
                         width={600}
                         height={400}

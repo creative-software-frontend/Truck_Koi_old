@@ -198,11 +198,7 @@ export default function Footer() {
                   height={50}
                   className="rounded-full"
                 />
-<<<<<<< HEAD
-                <span className="text-xl font-bold">ট্রাক কই</span>
-=======
                 <span className="text-sm font-bold">ট্রাক কই</span>
->>>>>>> 77e01619a7bb9a83a79be7e02744e150c1061570
               </Link>
               <p className="text-sm text-gray-600"> © ২০২৫ ট্রাক কই লিমিটেড । সর্বস্বত্ব সংরক্ষিত</p>
             </div>
