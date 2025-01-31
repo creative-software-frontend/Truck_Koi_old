@@ -9,13 +9,13 @@ export default function MobileAppPromo() {
                 {/* Left Content */}
                 <div className="w-full md:w-1/2 space-y-6">
                     <h2 className="text-3xl md:text-4xl lg:text-[40px] font-bold leading-tight text-[#1A1A1A]">
-                        Get The Most of Truck Lagbe
+                        Get The Most of Truck Koi
                         <br />
                         With Our Mobile App
                     </h2>
 
                     <p className="text-gray-600 text-lg">
-                        Download the Truck Lagbe mobile app for one touch access to your trip experience with the Truck Lagbe mobile
+                        Download the Truck Koi mobile app for one touch access to your trip experience with the Truck Koi mobile
                         app. You will get access to special features and exclusive offers.
                     </p>
 
@@ -53,7 +53,7 @@ export default function MobileAppPromo() {
                 <div className="w-full md:w-1/2">
                     <Image
                         src={poster}
-                        alt="Truck Lagbe Mobile App"
+                        alt="Truck Koi Mobile App"
                         width={300}
                         height={300}
                         className="w-full h-auto"

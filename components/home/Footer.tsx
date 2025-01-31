@@ -193,7 +193,7 @@ export default function Footer() {
               <Link href="/" className="flex items-center gap-2">
                 <Image
                   src={logo}
-                  alt="Truck Lagbe"
+                  alt="Truck koi"
                   width={50}
                   height={50}
                   className="rounded-full"
