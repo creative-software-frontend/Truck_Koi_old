@@ -22,7 +22,7 @@ const KeyClients = () => {
         <div className="text-center py-10 bg-white max-w-7xl mx-auto">
             <h2 className="text-2xl font-bold">Our Key Clients</h2>
             <p className="text-gray-600 max-w-xl mx-auto mt-2">
-                Truck Lagbe is the logistics backbone for a lot of Bangladeshi small and large businesses. Some of our clients are enjoying up to 17% reduction in their transportation costs.
+                Truck Koi is the logistics backbone for a lot of Bangladeshi small and large businesses. Some of our clients are enjoying up to 17% reduction in their transportation costs.
             </p>
 
             <div className="flex justify-center items-center gap-8 mt-6 flex-wrap">

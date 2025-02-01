@@ -25,7 +25,7 @@ const testimonials = [
     },
     {
         id: 3,
-        quote: "Truck Lagbe made home shifting hassle free. Their workers carried every piece of furniture very carefully.",
+        quote: "Truck Koi made home shifting hassle free. Their workers carried every piece of furniture very carefully.",
         author: "Samin Farhan",
         role: "IT Manager at Thermax Group Bangladesh",
         avatar: img1,

@@ -30,7 +30,7 @@ export default function WhyTruckLagbe() {
         <section className="container mx-auto px-4 py-16 max-w-7xl mx-auto">
             {/* Header */}
             <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Why Truck Lagbe?</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Why Truck Koi?</h2>
                 <p className="text-gray-600 text-lg">The easiest way to hire your trucks</p>
             </div>
 
@@ -40,7 +40,7 @@ export default function WhyTruckLagbe() {
 
                     <Image
                         src={enposter}
-                        alt="Truck Lagbe Service"
+                        alt="Truck Koi Service"
                         width={600}
                         height={400}
                         className="w-full h-auto object-contain"
