@@ -11,15 +11,15 @@ import WhyTruckLagbe from "@/components/home/why-truck-lagbe"
 export default function Home() {
   return (
     <div>
-<Header/>
+      <Header />
       <Banner />
 
       <WhyTruckLagbe />
       <HowItWorks />
-      <Testimonials/>
-      <KeyClients/>
+      <Testimonials />
+      <KeyClients />
       <MobileApp />
-<Footer/>
+      <Footer />
     </div>
   )
 }

@@ -4,8 +4,8 @@ import poster from '@/assests/banner/poster.webp'
 
 export default function MobileAppPromo() {
     return (
-        <section className="container  px-4 py-16  ">
-            <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 ">
+        <section className="container  px-4 py-16 max-w-7xl mx-auto   ">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-8 ">
                 {/* Left Content */}
                 <div className="w-full md:w-1/2 space-y-6">
                     <h2 className="text-3xl md:text-4xl lg:text-[40px] font-bold leading-tight text-[#1A1A1A]">
