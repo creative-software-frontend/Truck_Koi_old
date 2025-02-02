@@ -1,14 +1,14 @@
-import { MainNav } from "@/components/dashboard/main-nav";
+import CreateTripPage from "@/components/dashboard/create-trip/page";
 import { PromoCode } from "@/components/dashboard/promo-code";
-import { SideNav } from "@/components/dashboard/side-nav";
 
 
 export default function DashboardPage() {
   return (
     <div className="min-h-screen bg-white">
-      <MainNav />
+      {/* <MainNav /> */}
       <div className="flex">
-        <SideNav />
+        {/* <SideNav /> */}
+        <CreateTripPage />
         <PromoCode />
       </div>
     </div>
