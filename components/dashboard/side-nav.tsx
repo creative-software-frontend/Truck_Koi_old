@@ -1,6 +1,7 @@
 import { Clock, Plus, Settings, Ticket, Smartphone, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
+import Link from "next/link"
 
 export function SideNav() {
     return (
@@ -8,20 +9,20 @@ export function SideNav() {
             <div className="flex flex-col h-full">
                 <div className="flex-1 py-2">
                     <nav className="space-y-1 px-2">
-                        <Button variant="ghost" className="w-full justify-start gap-2">
+                        <Link href="/dashboard/create-trip" className="w-full justify-start gap-2">
                             <Plus className="h-5 w-5" />
                             Create Trip
-                        </Button>
+                        </Link>
 
                         <Button variant="ghost" className="w-full justify-start gap-2">
                             <Clock className="h-5 w-5" />
                             My Trips
                         </Button>
 
-                        <Button variant="ghost" className="w-full justify-start gap-2 bg-red-50 text-red-600">
+                        <Link href="/dashboard/kamkoreni" className="w-full justify-start gap-2 bg-red-50 text-red-600">
                             <Ticket className="h-5 w-5" />
                             Promo Code
-                        </Button>
+                        </Link>
 
                         <Collapsible>
                             <CollapsibleTrigger asChild>

@@ -1,4 +1,4 @@
-import CreateTripPage from "@/components/dashboard/create-trip/page";
+import CreateTripPage from "@/app/dashboard/create-trip/page";
 import { PromoCode } from "@/components/dashboard/promo-code";
 
 
@@ -8,8 +8,8 @@ export default function DashboardPage() {
       {/* <MainNav /> */}
       <div className="flex">
         {/* <SideNav /> */}
-        <CreateTripPage />
-        <PromoCode />
+        {/* <CreateTripPage /> */}
+        {/* <PromoCode /> */}
       </div>
     </div>
   )
