@@ -3,17 +3,19 @@
 import { Plus, X, Star, Map, List, Landmark } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { useState } from "react"
+import { useState, type ReactMouseEvent } from "react" // Added ReactMouseEvent import
 import { CascadingMenu } from "./CascadingMenu"
 import { PortMenu } from "./PortMenu"
+import { MapModal } from "./MapModal"
 
 export function CreateTripForm() {
   const [locations, setLocations] = useState([{ id: 1, label: "Enter a load Location", color: "red" }])
   const [focusedIndex, setFocusedIndex] = useState<number | null>(null)
   const [menuPosition, setMenuPosition] = useState({ top: 0, left: 0 })
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [activeLocationIndex, setActiveLocationIndex] = useState<number | null>(null)
+  const [isMapOpen, setIsMapOpen] = useState(false)
   const [isPortMenuOpen, setIsPortMenuOpen] = useState(false)
+  const [activeLocationIndex, setActiveLocationIndex] = useState<number | null>(null)
 
   const addLocation = () => {
     setLocations([...locations, { id: locations.length + 1, label: "Enter an unload Location", color: "green" }])
@@ -26,7 +28,8 @@ export function CreateTripForm() {
     }
   }
 
-  const openDistrictMenu = (event: React.MouseEvent<HTMLButtonElement>, index: number) => {
+  const openDistrictMenu = (event: ReactMouseEvent<HTMLButtonElement>, index: number) => {
+    // Changed to ReactMouseEvent
     event.preventDefault()
     const button = event.currentTarget
     const rect = button.getBoundingClientRect()
@@ -36,11 +39,11 @@ export function CreateTripForm() {
     })
     setActiveLocationIndex(index)
     setIsMenuOpen(true)
-    // Don't remove focus when opening the menu
     setFocusedIndex(index)
   }
 
-  const openPortMenu = (event: React.MouseEvent<HTMLButtonElement>, index: number) => {
+  const openPortMenu = (event: ReactMouseEvent<HTMLButtonElement>, index: number) => {
+    // Changed to ReactMouseEvent
     event.preventDefault()
     const button = event.currentTarget
     const rect = button.getBoundingClientRect()
@@ -53,6 +56,12 @@ export function CreateTripForm() {
     setFocusedIndex(index)
   }
 
+  const openMap = (index: number) => {
+    setActiveLocationIndex(index)
+    setIsMapOpen(true)
+    setFocusedIndex(index)
+  }
+
   const handleLocationSelect = (location: string) => {
     if (activeLocationIndex !== null) {
       const updatedLocations = [...locations]
@@ -62,18 +71,17 @@ export function CreateTripForm() {
       }
       setLocations(updatedLocations)
       setIsMenuOpen(false)
-      // Don't remove focus after selection
+      setIsPortMenuOpen(false)
+      setIsMapOpen(false)
     }
   }
 
-  // Modified to handle mouse events without immediately removing focus
   const handleInputFocus = (index: number) => {
     setFocusedIndex(index)
   }
 
   const handleInputBlur = (index: number) => {
-    // Only remove focus if the menu is not open
-    if (!isMenuOpen) {
+    if (!isMenuOpen && !isPortMenuOpen && !isMapOpen) {
       setTimeout(() => {
         setFocusedIndex(null)
       }, 200)
@@ -135,13 +143,18 @@ export function CreateTripForm() {
 
               {(focusedIndex === index ||
                 (isMenuOpen && activeLocationIndex === index) ||
-                (isPortMenuOpen && activeLocationIndex === index)) && (
+                (isPortMenuOpen && activeLocationIndex === index) ||
+                (isMapOpen && activeLocationIndex === index)) && (
                 <div className="flex gap-2 mt-2 bg-white p-2 shadow rounded-lg">
                   <Button variant="outline" className="flex items-center gap-1">
                     <Star className="h-4 w-4" />
                     অ্যাড্রেসবুক
                   </Button>
-                  <Button variant="outline" className="flex items-center gap-1">
+                  <Button
+                    variant="outline"
+                    className={`flex items-center gap-1 ${isMapOpen && activeLocationIndex === index ? "bg-accent" : ""}`}
+                    onClick={() => openMap(index)}
+                  >
                     <Map className="h-4 w-4" />
                     ম্যাপ
                   </Button>
@@ -177,7 +190,6 @@ export function CreateTripForm() {
         isOpen={isMenuOpen}
         onClose={() => {
           setIsMenuOpen(false)
-          // Optional: keep focus for a short while after closing
           setTimeout(() => {
             setFocusedIndex(null)
           }, 200)
@@ -185,6 +197,7 @@ export function CreateTripForm() {
         onSelect={handleLocationSelect}
         position={menuPosition}
       />
+
       <PortMenu
         isOpen={isPortMenuOpen}
         onClose={() => {
@@ -195,6 +208,17 @@ export function CreateTripForm() {
         }}
         onSelect={handleLocationSelect}
         position={menuPosition}
+      />
+
+      <MapModal
+        isOpen={isMapOpen}
+        onClose={() => {
+          setIsMapOpen(false)
+          setTimeout(() => {
+            setFocusedIndex(null)
+          }, 200)
+        }}
+        onSelect={handleLocationSelect}
       />
     </div>
   )

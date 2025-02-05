@@ -1,0 +1,65 @@
+import type React from "react"
+import { useState } from "react"
+import { X, Search } from "lucide-react"
+import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
+
+interface MapModalProps {
+  isOpen: boolean
+  onClose: () => void
+  onSelect: (location: string) => void
+}
+
+export function MapModal({ isOpen, onClose, onSelect }: MapModalProps) {
+  const [searchQuery, setSearchQuery] = useState("")
+
+  if (!isOpen) return null
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault()
+    // Implement search functionality here
+    console.log("Searching for:", searchQuery)
+  }
+
+  const handleSelect = () => {
+    onSelect(searchQuery)
+    onClose()
+  }
+
+  return (
+    <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center">
+      <div className="bg-white rounded-lg w-[800px] h-[600px] flex flex-col">
+        <div className="flex justify-between items-center p-4 border-b">
+          <h3 className="text-lg font-medium">লোকেশন খুঁজে করুন</h3>
+          <Button variant="ghost" size="icon" onClick={onClose}>
+            <X className="h-5 w-5" />
+          </Button>
+        </div>
+        <div className="p-4 border-b">
+          <form onSubmit={handleSearch} className="relative">
+            <Input
+              type="text"
+              placeholder="কোথায় যেতে চান?"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="pl-10 pr-4 py-2 w-full"
+            />
+            <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
+          </form>
+        </div>
+        <div className="flex-1 p-4 bg-gray-100">
+          {/* Placeholder for map */}
+          <div className="w-full h-full bg-gray-300 flex items-center justify-center">
+            <p className="text-gray-600">Map placeholder</p>
+          </div>
+        </div>
+        <div className="p-4 border-t">
+          <Button onClick={handleSelect} className="w-full">
+            Select Location
+          </Button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
