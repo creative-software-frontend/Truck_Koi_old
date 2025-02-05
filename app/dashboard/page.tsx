@@ -1,5 +1,5 @@
-import CreateTripPage from "@/app/dashboard/create-trip/page";
-import { PromoCode } from "@/components/dashboard/promo-code";
+// import CreateTripPage from "@/app/dashboard/create-trip/page";
+// import { PromoCode } from "@/components/dashboard/promo-code";
 
 
 export default function DashboardPage() {
