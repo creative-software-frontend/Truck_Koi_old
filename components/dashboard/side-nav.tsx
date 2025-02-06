@@ -47,7 +47,7 @@ export function SideNav() {
             <Collapsible>
               <CollapsibleTrigger asChild>
                 <Link
-                  href="/dashboard/create-trip"
+                  href="/dashboard"
                   className="w-full flex items-center gap-x-2"
                 >
                   <Settings className="h-5 w-5" />

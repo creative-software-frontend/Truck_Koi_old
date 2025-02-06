@@ -1,40 +1,45 @@
-import type React from "react"
-import { useState } from "react"
-import { X, Search } from "lucide-react"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
+import { useState } from "react";
+import { X, Search } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 interface MapModalProps {
-  isOpen: boolean
-  onClose: () => void
-  onSelect: (location: string) => void
+  isOpen: boolean;
+  onClose: () => void;
+  onSelect: (location: string) => void;
 }
 
 export function MapModal({ isOpen, onClose, onSelect }: MapModalProps) {
-  const [searchQuery, setSearchQuery] = useState("")
+  const [searchQuery, setSearchQuery] = useState("");
 
-  if (!isOpen) return null
+  if (!isOpen) return null;
 
   const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Implement search functionality here
-    console.log("Searching for:", searchQuery)
-  }
+    e.preventDefault();
+    console.log("Searching for:", searchQuery);
+  };
 
   const handleSelect = () => {
-    onSelect(searchQuery)
-    onClose()
-  }
+    if (searchQuery.trim() === "") {
+      alert("Please enter a location before selecting.");
+      return;
+    }
+    onSelect(searchQuery);
+    onClose();
+  };
 
   return (
     <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center">
-      <div className="bg-white rounded-lg w-[800px] h-[600px] flex flex-col">
+      <div className="bg-white rounded-lg w-[800px] h-[700px] flex flex-col">
+        {/* Header */}
         <div className="flex justify-between items-center p-4 border-b">
           <h3 className="text-lg font-medium">লোকেশন খুঁজে করুন</h3>
           <Button variant="ghost" size="icon" onClick={onClose}>
             <X className="h-5 w-5" />
           </Button>
         </div>
+
+        {/* Search Bar */}
         <div className="p-4 border-b">
           <form onSubmit={handleSearch} className="relative">
             <Input
@@ -47,12 +52,20 @@ export function MapModal({ isOpen, onClose, onSelect }: MapModalProps) {
             <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
           </form>
         </div>
+
+        {/* Map Section */}
         <div className="flex-1 p-4 bg-gray-100">
-          {/* Placeholder for map */}
           <div className="w-full h-full bg-gray-300 flex items-center justify-center">
-            <p className="text-gray-600">Map placeholder</p>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14475.259566651797!2d91.88062475!3d24.90429495!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1738833668532!5m2!1sen!2sbd"
+              width="800"
+              height="450"
+              loading="lazy"
+            ></iframe>
           </div>
         </div>
+
+        {/* Footer */}
         <div className="p-4 border-t">
           <Button onClick={handleSelect} className="w-full">
             Select Location
@@ -60,6 +73,5 @@ export function MapModal({ isOpen, onClose, onSelect }: MapModalProps) {
         </div>
       </div>
     </div>
-  )
+  );
 }
-
