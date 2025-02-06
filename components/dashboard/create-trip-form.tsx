@@ -1,92 +1,112 @@
-"use client"
+"use client";
 
-import { Plus, X, Star, Map, List, Landmark } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { useState, type ReactMouseEvent } from "react" // Added ReactMouseEvent import
-import { CascadingMenu } from "./CascadingMenu"
-import { PortMenu } from "./PortMenu"
-import { MapModal } from "./MapModal"
+import { Plus, X, Star, Map, List, Landmark } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { useState, type ReactMouseEvent } from "react"; // Added ReactMouseEvent import
+import { CascadingMenu } from "./CascadingMenu";
+import { PortMenu } from "./PortMenu";
+import { MapModal } from "./MapModal";
+import { AddressBookModal } from "./AddressBookModal";
 
 export function CreateTripForm() {
-  const [locations, setLocations] = useState([{ id: 1, label: "Enter a load Location", color: "red" }])
-  const [focusedIndex, setFocusedIndex] = useState<number | null>(null)
-  const [menuPosition, setMenuPosition] = useState({ top: 0, left: 0 })
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isMapOpen, setIsMapOpen] = useState(false)
-  const [isPortMenuOpen, setIsPortMenuOpen] = useState(false)
-  const [activeLocationIndex, setActiveLocationIndex] = useState<number | null>(null)
+  const [isAddressBookOpen, setIsAddressBookOpen] = useState(false);
+
+  const [locations, setLocations] = useState([
+    { id: 1, label: "Enter a load Location", color: "red" },
+  ]);
+  const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
+  const [menuPosition, setMenuPosition] = useState({ top: 0, left: 0 });
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMapOpen, setIsMapOpen] = useState(false);
+  const [isPortMenuOpen, setIsPortMenuOpen] = useState(false);
+  const [activeLocationIndex, setActiveLocationIndex] = useState<number | null>(
+    null
+  );
 
   const addLocation = () => {
-    setLocations([...locations, { id: locations.length + 1, label: "Enter an unload Location", color: "green" }])
-  }
+    setLocations([
+      ...locations,
+      {
+        id: locations.length + 1,
+        label: "Enter an unload Location",
+        color: "green",
+      },
+    ]);
+  };
 
   const removeLocation = (index: number) => {
-    setLocations(locations.filter((_, i) => i !== index))
+    setLocations(locations.filter((_, i) => i !== index));
     if (focusedIndex === index) {
-      setFocusedIndex(null)
+      setFocusedIndex(null);
     }
-  }
+  };
 
-  const openDistrictMenu = (event: ReactMouseEvent<HTMLButtonElement>, index: number) => {
+  const openDistrictMenu = (
+    event: ReactMouseEvent<HTMLButtonElement>,
+    index: number
+  ) => {
     // Changed to ReactMouseEvent
-    event.preventDefault()
-    const button = event.currentTarget
-    const rect = button.getBoundingClientRect()
+    event.preventDefault();
+    const button = event.currentTarget;
+    const rect = button.getBoundingClientRect();
     setMenuPosition({
       top: rect.bottom + window.scrollY,
       left: rect.left + window.scrollX,
-    })
-    setActiveLocationIndex(index)
-    setIsMenuOpen(true)
-    setFocusedIndex(index)
-  }
+    });
+    setActiveLocationIndex(index);
+    setIsMenuOpen(true);
+    setFocusedIndex(index);
+  };
 
-  const openPortMenu = (event: ReactMouseEvent<HTMLButtonElement>, index: number) => {
+  const openPortMenu = (
+    event: ReactMouseEvent<HTMLButtonElement>,
+    index: number
+  ) => {
     // Changed to ReactMouseEvent
-    event.preventDefault()
-    const button = event.currentTarget
-    const rect = button.getBoundingClientRect()
+    event.preventDefault();
+    const button = event.currentTarget;
+    const rect = button.getBoundingClientRect();
     setMenuPosition({
       top: rect.bottom + window.scrollY,
       left: rect.left + window.scrollX,
-    })
-    setActiveLocationIndex(index)
-    setIsPortMenuOpen(true)
-    setFocusedIndex(index)
-  }
+    });
+    setActiveLocationIndex(index);
+    setIsPortMenuOpen(true);
+    setFocusedIndex(index);
+  };
 
   const openMap = (index: number) => {
-    setActiveLocationIndex(index)
-    setIsMapOpen(true)
-    setFocusedIndex(index)
-  }
+    setActiveLocationIndex(index);
+    setIsMapOpen(true);
+    setFocusedIndex(index);
+  };
 
   const handleLocationSelect = (location: string) => {
     if (activeLocationIndex !== null) {
-      const updatedLocations = [...locations]
+      const updatedLocations = [...locations];
       updatedLocations[activeLocationIndex] = {
         ...updatedLocations[activeLocationIndex],
         label: location,
-      }
-      setLocations(updatedLocations)
-      setIsMenuOpen(false)
-      setIsPortMenuOpen(false)
-      setIsMapOpen(false)
+      };
+      setLocations(updatedLocations);
+      setIsMenuOpen(false);
+      setIsPortMenuOpen(false);
+      setIsMapOpen(false);
     }
-  }
+  };
 
   const handleInputFocus = (index: number) => {
-    setFocusedIndex(index)
-  }
+    setFocusedIndex(index);
+  };
 
   const handleInputBlur = (index: number) => {
     if (!isMenuOpen && !isPortMenuOpen && !isMapOpen) {
       setTimeout(() => {
-        setFocusedIndex(null)
-      }, 200)
+        setFocusedIndex(null);
+      }, 200);
     }
-  }
+  };
 
   return (
     <div className="p-8 w-[480px]">
@@ -95,7 +115,9 @@ export function CreateTripForm() {
       {/* Progress Steps */}
       <div className="flex items-center gap-4 mb-8">
         <div className="flex items-center gap-2">
-          <div className="w-6 h-6 rounded-full bg-red-600 text-white flex items-center justify-center text-sm">1</div>
+          <div className="w-6 h-6 rounded-full bg-red-600 text-white flex items-center justify-center text-sm">
+            1
+          </div>
           <span className="font-medium">Locations</span>
         </div>
         <div className="flex items-center gap-2">
@@ -121,7 +143,9 @@ export function CreateTripForm() {
             <div key={location.id} className="relative">
               <div className="relative flex items-center">
                 <div className="absolute left-3 top-3">
-                  <div className={`w-6 h-6 rounded-full border-2 border-${location.color}-600`} />
+                  <div
+                    className={`w-6 h-6 rounded-full border-2 border-${location.color}-600`}
+                  />
                 </div>
                 <Input
                   className="pl-12 pr-12 h-12 w-full"
@@ -146,13 +170,32 @@ export function CreateTripForm() {
                 (isPortMenuOpen && activeLocationIndex === index) ||
                 (isMapOpen && activeLocationIndex === index)) && (
                 <div className="flex gap-2 mt-2 bg-white p-2 shadow rounded-lg">
-                  <Button variant="outline" className="flex items-center gap-1">
+                  <Button
+                    variant="outline"
+                    className={`flex items-center gap-1 ${
+                      isAddressBookOpen ? "bg-accent" : ""
+                    }`}
+                    onClick={() => setIsAddressBookOpen(true)}
+                  >
                     <Star className="h-4 w-4" />
                     অ্যাড্রেসবুক
                   </Button>
+
+                  <AddressBookModal
+                    isOpen={isAddressBookOpen}
+                    onClose={() => setIsAddressBookOpen(false)}
+                    onSelect={(address) => {
+                      handleLocationSelect(address);
+                        setIsAddressBookOpen(false)
+                    }}
+                  />
                   <Button
                     variant="outline"
-                    className={`flex items-center gap-1 ${isMapOpen && activeLocationIndex === index ? "bg-accent" : ""}`}
+                    className={`flex items-center gap-1 ${
+                      isMapOpen && activeLocationIndex === index
+                        ? "bg-accent"
+                        : ""
+                    }`}
                     onClick={() => openMap(index)}
                   >
                     <Map className="h-4 w-4" />
@@ -160,7 +203,11 @@ export function CreateTripForm() {
                   </Button>
                   <Button
                     variant="outline"
-                    className={`flex items-center gap-1 ${isMenuOpen && activeLocationIndex === index ? "bg-accent" : ""}`}
+                    className={`flex items-center gap-1 ${
+                      isMenuOpen && activeLocationIndex === index
+                        ? "bg-accent"
+                        : ""
+                    }`}
                     onClick={(e) => openDistrictMenu(e, index)}
                   >
                     <List className="h-4 w-4" />
@@ -168,7 +215,11 @@ export function CreateTripForm() {
                   </Button>
                   <Button
                     variant="outline"
-                    className={`flex items-center gap-1 ${isPortMenuOpen && activeLocationIndex === index ? "bg-accent" : ""}`}
+                    className={`flex items-center gap-1 ${
+                      isPortMenuOpen && activeLocationIndex === index
+                        ? "bg-accent"
+                        : ""
+                    }`}
                     onClick={(e) => openPortMenu(e, index)}
                   >
                     <Landmark className="h-4 w-4" />
@@ -180,7 +231,11 @@ export function CreateTripForm() {
           ))}
         </div>
 
-        <Button variant="ghost" className="text-red-600 pl-0 hover:bg-red-50" onClick={addLocation}>
+        <Button
+          variant="ghost"
+          className="text-red-600 pl-0 hover:bg-red-50"
+          onClick={addLocation}
+        >
           <Plus className="h-5 w-5 mr-2" />
           Add Stop
         </Button>
@@ -189,10 +244,10 @@ export function CreateTripForm() {
       <CascadingMenu
         isOpen={isMenuOpen}
         onClose={() => {
-          setIsMenuOpen(false)
+          setIsMenuOpen(false);
           setTimeout(() => {
-            setFocusedIndex(null)
-          }, 200)
+            setFocusedIndex(null);
+          }, 200);
         }}
         onSelect={handleLocationSelect}
         position={menuPosition}
@@ -201,10 +256,10 @@ export function CreateTripForm() {
       <PortMenu
         isOpen={isPortMenuOpen}
         onClose={() => {
-          setIsPortMenuOpen(false)
+          setIsPortMenuOpen(false);
           setTimeout(() => {
-            setFocusedIndex(null)
-          }, 200)
+            setFocusedIndex(null);
+          }, 200);
         }}
         onSelect={handleLocationSelect}
         position={menuPosition}
@@ -213,14 +268,13 @@ export function CreateTripForm() {
       <MapModal
         isOpen={isMapOpen}
         onClose={() => {
-          setIsMapOpen(false)
+          setIsMapOpen(false);
           setTimeout(() => {
-            setFocusedIndex(null)
-          }, 200)
+            setFocusedIndex(null);
+          }, 200);
         }}
         onSelect={handleLocationSelect}
       />
     </div>
-  )
+  );
 }
-

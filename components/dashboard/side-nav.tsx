@@ -16,7 +16,7 @@ import Link from "next/link";
 
 export function SideNav() {
   return (
-    <div className="border-r w-64 h-screen">
+    <div className="border-r w-64 h-screen ">
       <div className="flex flex-col h-full">
         <div className="flex-1 py-2">
           <nav className="space-y-1 px-2">
