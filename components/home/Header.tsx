@@ -8,13 +8,21 @@ import { Phone } from "lucide-react"
 import Image from "next/image"
 import logo from "@/assests/icon.png"
 import { useState } from "react"
+import bangla from "@/assests/bangla.jpg"
+import english from "@/assests/english.jpg"
 
 const Header = () => {
+  const [language, setLanguage] = useState<"bangla" | "english">("bangla")
+
   const [isLoginOpen, setIsLoginOpen] = useState(false)
   const [isVerifyOpen, setIsVerifyOpen] = useState(false)
   const [otp, setOtp] = useState(["", "", "", ""])
   const [timer, setTimer] = useState(28)
 
+
+  const toggleLanguage = () => {
+    setLanguage(language === "bangla" ? "english" : "bangla")
+  }
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoginOpen(false)
@@ -51,14 +59,22 @@ const Header = () => {
         </div>
 
         <div className="flex items-center gap-4">
-          <Button variant="outline" className="bg-white text-[#8B0000] hover:bg-gray-100">
-            <Image src="/placeholder.svg?height=20&width=30" alt="Bangladesh" width={30} height={20} className="mr-2" />
-            বাংলা
-          </Button>
-          <Button onClick={() => setIsLoginOpen(true)} className="bg-red-600 hover:bg-red-700 text-white">
-            লগ ইন
-          </Button>
-        </div>
+            <Button variant="outline" className="bg-white text-[#8B0000] hover:bg-gray-100" onClick={toggleLanguage}>
+              <Image
+                src={
+                  language === "bangla" ? {bangla} :{english}
+                }
+                alt={language === "bangla" ? "Bangladesh" : "UK"}
+                width={30}
+                height={20}
+                className="mr-2"
+              />
+              {language === "bangla" ? "বাংলা" : "English"}
+            </Button>
+            <Button onClick={() => setIsLoginOpen(true)} className="bg-red-600 hover:bg-red-700 text-white">
+              লগ ইন
+            </Button>
+          </div>
       </nav>
 
       {/* Login Modal */}

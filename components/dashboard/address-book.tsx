@@ -10,14 +10,14 @@ export default function AddressBook() {
     const [open, setOpen] = useState(false)
 
     return (
-        <div className="max-w-screen-xl mx-auto px-4">
-            <div className="flex items-center justify-between mb-8">
-                <h1 className="text-2xl font-medium">অ্যাড্রেসবুক</h1>
+        <div className="max-w-screen-xl mx-auto px-2">
+            <div className="flex items-center justify-between mb-2">
+                <h1 className="text-2xl font-medium -mt-4">অ্যাড্রেসবুক</h1>
                 <Input placeholder="সর্বশেষ অ্যাড্রেস খুঁজুন" className="max-w-xs" type="search" />
             </div>
 
             {/* Empty State */}
-            <div className="flex flex-col items-center justify-center py-16">
+            <div className="flex flex-col items-center justify-center py-4">
                 <div className="w-64 h-64 mb-8">
                     <img
                         src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-FrcrJcVObX5rJY3Kw01Ok83mAl8GCw.png"

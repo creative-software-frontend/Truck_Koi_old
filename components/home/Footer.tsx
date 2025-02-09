@@ -52,7 +52,8 @@ export default function Footer() {
           </div>
         </div>
         {/* Main Footer Links */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-4">
+        <div className="border-t border-gray-200  ">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-4 mt-4">
           {/* Services */}
           <div>
             <h3 className="font-bold  mb-2 text-xs">সার্ভিস</h3>
@@ -180,7 +181,7 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-
+        </div>
 
 
 

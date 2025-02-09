@@ -2,16 +2,17 @@ import { Bell } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import Image from "next/image"
+import logo from '@/assests/icon.png'
 
 export function MainNav() {
     return (
         <header className="border-b">
             <div className="flex h-16 items-center px-4 gap-4">
                 <div className="flex items-center gap-2 flex-1">
-                    <img
-                        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-yqQ2ealeA3iitrWBBprWPIJtSTtWNq.png"
-                        alt="Truck Lagbe"
-                        className="h-8"
+                    <Image
+                        src={logo}
+                        className="h-8 w-12"
                     />
                     <span className="text-sm font-medium bg-pink-100 text-pink-600 px-2 py-0.5 rounded">BETA</span>
                 </div>

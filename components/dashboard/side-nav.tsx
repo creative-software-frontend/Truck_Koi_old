@@ -79,8 +79,8 @@ export function SideNav() {
           </nav>
         </div>
 
-        <div className="p-4 border-t">
-          <div className="space-y-4">
+        <div className="p-2 border-t">
+          <div className="space-y-1">
             <div>
               <h3 className="font-medium">Get the App</h3>
               <p className="text-sm text-muted-foreground">
