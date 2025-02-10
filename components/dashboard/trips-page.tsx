@@ -8,13 +8,13 @@ export default function TripsPage() {
   const [activeTab, setActiveTab] = useState("current");
 
   return (
-    <div className="md:w-[1200px] mx-auto px-4">
+    <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Navigation Tabs */}
-      <div className="flex border-b border-gray-200 mb-8">
+      <div className="flex border-b border-gray-200 mb-8 overflow-x-auto">
         <button
           onClick={() => setActiveTab("current")}
           className={cn(
-            "py-4 px-6 text-base font-medium relative",
+            "py-4 px-6 text-base font-medium relative whitespace-nowrap",
             activeTab === "current" ? "text-red-600" : "text-gray-600"
           )}
         >
@@ -26,7 +26,7 @@ export default function TripsPage() {
         <button
           onClick={() => setActiveTab("history")}
           className={cn(
-            "py-4 px-6 text-base font-medium relative",
+            "py-4 px-6 text-base font-medium relative whitespace-nowrap",
             activeTab === "history" ? "text-red-600" : "text-gray-600"
           )}
         >
@@ -38,20 +38,20 @@ export default function TripsPage() {
       </div>
 
       {/* Empty State */}
-      <div className="flex flex-col items-center justify-center py-16">
-        <div className="w-64 h-64 mb-8">
+      <div className="flex flex-col items-center justify-center py-16 text-center">
+        <div className="w-48 h-48 sm:w-64 sm:h-64 mb-8">
           {/* <img
-                        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-l2n1IjNSG1Bgvl8vTp32PTAXGkbiUv.png"
-                        alt="Empty trips illustration"
-                        className="w-full h-full object-contain"
-                    /> */}
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-l2n1IjNSG1Bgvl8vTp32PTAXGkbiUv.png"
+            alt="Empty trips illustration"
+            className="w-full h-full object-contain"
+          /> */}
         </div>
-        <h2 className="text-xl text-gray-900 mb-6">
+        <h2 className="text-lg sm:text-xl text-gray-900 mb-6">
           বর্তমানে আপনার কোনো ট্রিপ নেই
         </h2>
         <Link
           href="/dashboard/create-trip"
-          className="bg-red-600 text-white px-6 py-2.5 rounded-md hover:bg-red-700 transition-colors"
+          className="bg-red-600 text-white px-5 sm:px-6 py-2 sm:py-2.5 rounded-md hover:bg-red-700 transition-colors"
         >
           নতুন ট্রিপ তৈরি করুন
         </Link>

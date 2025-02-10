@@ -1,13 +1,13 @@
-import Image from "next/image"
-import { Check } from "lucide-react"
-import poster from '@/assests/banner/poster.webp'
+import Image from "next/image";
+import { Check } from "lucide-react";
+import poster from '@/assests/banner/poster.webp';
 
 export default function MobileAppPromo() {
     return (
-        <section className="container  px-4 py-16 max-w-7xl mx-auto   ">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-8 ">
+        <section className="container px-4 py-16 max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-8">
                 {/* Left Content */}
-                <div className="w-full md:w-1/2 space-y-6">
+                <div className="space-y-6">
                     <h2 className="text-3xl md:text-4xl lg:text-[40px] font-bold leading-tight text-[#1A1A1A]">
                         Get The Most of Truck Koi
                         <br />
@@ -15,8 +15,8 @@ export default function MobileAppPromo() {
                     </h2>
 
                     <p className="text-gray-600 text-lg">
-                        Download the Truck Koi mobile app for one touch access to your trip experience with the Truck Koi mobile
-                        app. You will get access to special features and exclusive offers.
+                        Download the Truck Koi mobile app for one-touch access to your trip experience. You will get access to 
+                        special features and exclusive offers.
                     </p>
 
                     <ul className="space-y-4">
@@ -32,36 +32,20 @@ export default function MobileAppPromo() {
                             </li>
                         ))}
                     </ul>
-
-                    {/* <a
-                        href="https://play.google.com/store/apps/details?id=com.trucklagbe"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block"
-                    >
-                        <Image
-                            src="/google-play-badge.png"
-                            alt="Get it on Google Play"
-                            width={162}
-                            height={48}
-                            className="h-12 w-auto"
-                        />
-                    </a> */}
                 </div>
 
                 {/* Right Image */}
-                <div className="w-full md:w-1/2">
+                <div className="flex justify-center">
                     <Image
                         src={poster}
                         alt="Truck Koi Mobile App"
-                        width={300}
-                        height={300}
-                        className="w-full h-auto"
+                        width={400}
+                        height={400}
+                        className="w-full max-w-sm md:max-w-md lg:max-w-lg h-auto"
                         priority
                     />
                 </div>
             </div>
         </section>
-    )
+    );
 }
-

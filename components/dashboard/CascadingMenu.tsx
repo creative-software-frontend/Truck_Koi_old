@@ -1,5 +1,7 @@
-import { useState } from "react"
-import { ChevronRight } from "lucide-react"
+"use client"
+
+import { useState, useEffect } from "react"
+import { ChevronRight, ChevronLeft } from "lucide-react"
 
 interface District {
   name: string
@@ -31,31 +33,56 @@ interface CascadingMenuProps {
 
 export function CascadingMenu({ isOpen, onClose, onSelect, position }: CascadingMenuProps) {
   const [activeDistrict, setActiveDistrict] = useState<District | null>(null)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 640)
+    }
+
+    checkIsMobile()
+    window.addEventListener("resize", checkIsMobile)
+
+    return () => {
+      window.removeEventListener("resize", checkIsMobile)
+    }
+  }, [])
 
   if (!isOpen) return null
 
   return (
     <div
-      className="fixed z-50 flex shadow-lg rounded-lg overflow-hidden"
-      style={{ top: `${position.top}px`, left: `${position.left}px` }}
+      className={`fixed z-50 flex shadow-lg rounded-lg overflow-hidden ${isMobile ? "inset-x-4 top-20 flex-col" : ""}`}
+      style={isMobile ? {} : { top: `${position.top}px`, left: `${position.left}px` }}
     >
       {/* Districts */}
-      <div className="bg-white w-48">
-        {districts.map((district) => (
+      <div className={`bg-white ${isMobile ? "w-full" : "w-48"}`}>
+        {isMobile && activeDistrict && (
           <div
-            key={district.name}
-            className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex justify-between items-center text-sm"
-            onMouseEnter={() => setActiveDistrict(district)}
+            className="px-4 py-2 bg-gray-100 cursor-pointer flex items-center text-sm font-medium"
+            onClick={() => setActiveDistrict(null)}
           >
-            {district.name}
-            <ChevronRight className="h-4 w-4" />
+            <ChevronLeft className="h-4 w-4 mr-2" />
+            Back to Districts
           </div>
-        ))}
+        )}
+        {(!isMobile || !activeDistrict) &&
+          districts.map((district) => (
+            <div
+              key={district.name}
+              className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex justify-between items-center text-sm"
+              onClick={() => isMobile && setActiveDistrict(district)}
+              onMouseEnter={() => !isMobile && setActiveDistrict(district)}
+            >
+              {district.name}
+              <ChevronRight className="h-4 w-4" />
+            </div>
+          ))}
       </div>
 
       {/* Subdistricts */}
       {activeDistrict && (
-        <div className="bg-white w-48 border-l border-gray-200">
+        <div className={`bg-white ${isMobile ? "w-full" : "w-48 border-l border-gray-200"}`}>
           {activeDistrict.subdistricts.map((subdistrict) => (
             <div
               key={subdistrict}

@@ -11,24 +11,30 @@ export function PromoCode() {
     const handlePromoSubmit = (promoCode: string) => {
         console.log("Promo code submitted:", promoCode)
         // Handle the promo code submission here
-      }
+    }
+
     return (
-        <div className="flex-1 p-8 md:w-[1200px] ">
-            <div className="mb-8">
-                <h1 className="text-2xl font-semibold">Promo Code</h1>
+        <div className="flex-1 p-4 md:p-8 max-w-[1200px] mx-auto">
+            <div className="mb-6 md:mb-8">
+                <h1 className="text-xl md:text-2xl font-semibold text-center md:text-left">Promo Code</h1>
             </div>
 
-            <div className="flex flex-col items-center justify-center max-w-md mx-auto py-12">
-                <div className="w-64 h-64 bg-gray-100 rounded-lg mb-6 flex items-center justify-center">
+            <div className="flex flex-col items-center justify-center w-full px-4 sm:px-6 md:px-0">
+                <div className="w-48 h-48 md:w-64 md:h-64 bg-gray-100 rounded-lg mb-6 flex items-center justify-center">
                     {/* Placeholder for illustration */}
-                    <div className="w-32 h-32 bg-gray-200 rounded-full" />
+                    <div className="w-24 h-24 md:w-32 md:h-32 bg-gray-200 rounded-full" />
                 </div>
 
-                <h2 className="text-xl font-semibold mb-2">No Promo Code!</h2>
-                <p className="text-muted-foreground text-center mb-6">Add new promo code to save money</p>
+                <h2 className="text-lg md:text-xl font-semibold mb-2">No Promo Code!</h2>
+                <p className="text-sm md:text-base text-muted-foreground text-center mb-6">
+                    Add a new promo code to save money
+                </p>
 
-                <Button onClick={() => setIsModalOpen(true)} className="bg-red-600 hover:bg-red-700 text-white gap-2">
-                    <Plus className="h-5 w-5" />
+                <Button
+                    onClick={() => setIsModalOpen(true)}
+                    className="bg-red-600 hover:bg-red-700 text-white gap-2 px-4 py-2 md:px-6 md:py-2.5 text-sm md:text-base"
+                >
+                    <Plus className="h-4 w-4 md:h-5 md:w-5" />
                     Add Promo Code
                 </Button>
                 <CreatePromoModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} onSubmit={handlePromoSubmit} />
@@ -36,4 +42,3 @@ export function PromoCode() {
         </div>
     )
 }
-

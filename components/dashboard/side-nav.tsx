@@ -1,3 +1,6 @@
+"use client"
+
+import { useState } from "react";
 import {
   Clock,
   Plus,
@@ -15,25 +18,40 @@ import {
 import Link from "next/link";
 
 export function SideNav() {
+  const [sidebarOpen, setSidebarOpen] = useState(true);
+
   return (
-    <div className="border-r w-64 h-screen ">
+    <div
+      className={`${
+        sidebarOpen ? "w-64" : "w-20"
+      } transition-all duration-300 border-r h-screen`}
+    >
       <div className="flex flex-col h-full">
+        {/* Sidebar toggle button */}
+        <Button
+          variant="ghost"
+          className="lg:hidden absolute top-4 left-4"
+          onClick={() => setSidebarOpen((prev) => !prev)}
+        >
+          {sidebarOpen ? "Close" : "Open"}
+        </Button>
+
         <div className="flex-1 py-2">
           <nav className="space-y-1 px-2">
             <Link
               href="/dashboard/create-trip"
-              className="w-full justify-start gap-2 flex item-center "
+              className="w-full justify-start gap-2 flex item-center"
             >
               <Plus className="h-5 w-5" />
-              Create Trip
+              {sidebarOpen && "Create Trip"}
             </Link>
 
             <Link
               href="/dashboard/mytrip"
-              className="w-full justify-start gap-2 flex "
+              className="w-full justify-start gap-2 flex"
             >
               <Clock className="h-5 w-5" />
-              My Trips
+              {sidebarOpen && "My Trips"}
             </Link>
 
             <Link
@@ -41,17 +59,17 @@ export function SideNav() {
               className="w-full justify-start gap-2 bg-red-50 text-red-600 flex item-center"
             >
               <Ticket className="h-5 w-5" />
-              Promo Code
+              {sidebarOpen && "Promo Code"}
             </Link>
 
             <Collapsible>
               <CollapsibleTrigger asChild>
                 <Link
-                  href="/dashboard"
+                  href=""
                   className="w-full flex items-center gap-x-2"
                 >
                   <Settings className="h-5 w-5" />
-                  <span className="text-left flex-1">Settings</span>
+                  {sidebarOpen && <span className="text-left flex-1">Settings</span>}
                   <ChevronDown className="h-4 w-4" />
                 </Link>
               </CollapsibleTrigger>
@@ -82,14 +100,14 @@ export function SideNav() {
         <div className="p-2 border-t">
           <div className="space-y-1">
             <div>
-              <h3 className="font-medium">Get the App</h3>
+              <h3 className="font-medium">{sidebarOpen && "Get the App"}</h3>
               <p className="text-sm text-muted-foreground">
-                Install the Truck Lagbe app for better experience.
+                Install the Truck Lagbe app for a better experience.
               </p>
             </div>
             <Button variant="outline" className="w-full gap-2">
               <Smartphone className="h-5 w-5" />
-              Install on Phone
+              {sidebarOpen && "Install on Phone"}
             </Button>
           </div>
         </div>

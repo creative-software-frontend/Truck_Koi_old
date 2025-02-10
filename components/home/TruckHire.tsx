@@ -7,9 +7,9 @@ const TruckHire = () => {
         <div className="max-w-2xl mx-auto p-4 bg-white rounded-lg shadow-md">
             <h2 className="text-lg font-semibold">Hire Your Truck</h2>
             <hr className="my-2" />
-            <div className="flex items-center gap-2">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                 {/* Load Location */}
-                <div className="flex-1">
+                <div className="flex-1 w-full">
                     <label className="text-sm font-medium">Load location</label>
                     <div className="flex items-center border rounded-lg p-2 mt-1">
                         <MapPin className="text-blue-500" size={20} />
@@ -23,7 +23,7 @@ const TruckHire = () => {
                 </div>
 
                 {/* Unload Location */}
-                <div className="flex-1">
+                <div className="flex-1 w-full">
                     <label className="text-sm font-medium">Unload location</label>
                     <div className="flex items-center border rounded-lg p-2 mt-1">
                         <ArrowDownCircle className="text-green-500" size={20} />
@@ -34,9 +34,11 @@ const TruckHire = () => {
                         />
                     </div>
                 </div>
+            </div>
 
-                {/* Hire Truck Button */}
-                <button className="bg-red-600 text-white px-4 py-2 mt-6 rounded-lg font-semibold">
+            {/* Hire Truck Button */}
+            <div className="mt-4 flex justify-center sm:justify-end">
+                <button className="bg-red-600 text-white px-6 py-2 rounded-lg font-semibold w-full sm:w-auto">
                     Hire Truck
                 </button>
             </div>

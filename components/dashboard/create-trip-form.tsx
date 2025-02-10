@@ -46,7 +46,6 @@ export function CreateTripForm() {
     event: ReactMouseEvent<HTMLButtonElement>,
     index: number
   ) => {
-    // Changed to ReactMouseEvent
     event.preventDefault();
     const button = event.currentTarget;
     const rect = button.getBoundingClientRect();
@@ -63,7 +62,6 @@ export function CreateTripForm() {
     event: ReactMouseEvent<HTMLButtonElement>,
     index: number
   ) => {
-    // Changed to ReactMouseEvent
     event.preventDefault();
     const button = event.currentTarget;
     const rect = button.getBoundingClientRect();
@@ -109,11 +107,11 @@ export function CreateTripForm() {
   };
 
   return (
-    <div className="p-8 w-[480px]">
+    <div className="p-8 w-full max-w-2xl mx-auto">
       <h1 className="text-2xl font-semibold mb-8">Create Your Trip</h1>
 
       {/* Progress Steps */}
-      <div className="flex items-center gap-4 mb-8">
+      <div className="flex items-center gap-4 mb-8 flex-wrap">
         <div className="flex items-center gap-2">
           <div className="w-6 h-6 rounded-full bg-red-600 text-white flex items-center justify-center text-sm">
             1
@@ -169,7 +167,7 @@ export function CreateTripForm() {
                 (isMenuOpen && activeLocationIndex === index) ||
                 (isPortMenuOpen && activeLocationIndex === index) ||
                 (isMapOpen && activeLocationIndex === index)) && (
-                <div className="flex gap-2 mt-2 bg-white p-2 shadow rounded-lg">
+                <div className="flex gap-2 mt-2 bg-white p-2 shadow rounded-lg flex-wrap">
                   <Button
                     variant="outline"
                     className={`flex items-center gap-1 ${
@@ -186,7 +184,7 @@ export function CreateTripForm() {
                     onClose={() => setIsAddressBookOpen(false)}
                     onSelect={(address) => {
                       handleLocationSelect(address);
-                        setIsAddressBookOpen(false)
+                      setIsAddressBookOpen(false);
                     }}
                   />
                   <Button

@@ -6,12 +6,12 @@ import logo from '@/assests/icon.png'
 
 export default function Footer() {
   return (
-    <footer className="bg-white pt-10 pb-2 p-32 max-w-8xl mx-auto">
+    <footer className="bg-white pt-10 pb-2 p-2 max-w-8xl mx-auto">
       <div className="container mx-auto px-4">
 
         <div className="border-t border-gray-200 py-4 mt-4">
           <h3 className="font-bold text-xs mb-2">ট্রাকের ক্যাটাগরি ও ভাড়াসমূহ</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-4">
             <div>
               <h4 className="font-semibold mb-3 text-xs">পিকআপ ট্রাক</h4>
               <ul className="space-y-1 text-xs text-gray-600">

@@ -1,5 +1,7 @@
-import { useState } from "react"
-import { Search, X } from "lucide-react"
+'use client';
+
+import { useState, useEffect } from "react"
+import { Search, X } from 'lucide-react'
 import { Input } from "@/components/ui/input"
 
 interface Port {
@@ -13,7 +15,7 @@ const ports: Port[] = [
   {
     id: 1,
     name: "আশুগঞ্জ",
-    details: "আশুগঞ্জ (৫৪), আশুগঞ্জ, ব্রাহ্মণবাড়িয়���",
+    details: "আশুগঞ্জ (৫৪), আশুগঞ্জ, ব্রাহ্মণবাড়িয়া",
     category: "আশুগঞ্জ টার্মিনাল",
   },
   {
@@ -45,6 +47,20 @@ interface PortMenuProps {
 
 export function PortMenu({ isOpen, onClose, onSelect, position }: PortMenuProps) {
   const [searchQuery, setSearchQuery] = useState("")
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 640)
+    }
+
+    checkIsMobile()
+    window.addEventListener('resize', checkIsMobile)
+
+    return () => {
+      window.removeEventListener('resize', checkIsMobile)
+    }
+  }, [])
 
   if (!isOpen) return null
 
@@ -56,8 +72,10 @@ export function PortMenu({ isOpen, onClose, onSelect, position }: PortMenuProps)
 
   return (
     <div
-      className="fixed z-50 bg-white rounded-lg shadow-lg w-[500px]"
-      style={{ top: `${position.top}px`, left: `${position.left}px` }}
+      className={`fixed z-50 bg-white rounded-lg shadow-lg ${
+        isMobile ? 'inset-x-4 top-20 w-auto' : 'w-[500px]'
+      }`}
+      style={isMobile ? {} : { top: `${position.top}px`, left: `${position.left}px` }}
     >
       {/* Header */}
       <div className="flex justify-between items-center p-4 border-b">
@@ -82,7 +100,7 @@ export function PortMenu({ isOpen, onClose, onSelect, position }: PortMenuProps)
       </div>
 
       {/* Port List */}
-      <div className="max-h-[400px] overflow-y-auto">
+      <div className={`overflow-y-auto ${isMobile ? 'max-h-[50vh]' : 'max-h-[400px]'}`}>
         {filteredPorts.map((port) => (
           <button
             key={port.id}
@@ -108,4 +126,3 @@ export function PortMenu({ isOpen, onClose, onSelect, position }: PortMenuProps)
     </div>
   )
 }
-

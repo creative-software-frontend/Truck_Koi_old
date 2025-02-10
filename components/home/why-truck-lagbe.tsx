@@ -36,7 +36,7 @@ export default function WhyTruckLagbe() {
 
             <div className="grid md:grid-cols-2 gap-8">
                 {/* Left Banner */}
-                <div className="relative w-full h-[470px] rounded-2xl overflow-hidden bg-gradient-to-b from-red-600 to-red-700">
+                <div className="relative w-full md:h-[470px] rounded-2xl overflow-hidden bg-gradient-to-b from-red-600 to-red-700">
 
                     <Image
                         src={enposter}

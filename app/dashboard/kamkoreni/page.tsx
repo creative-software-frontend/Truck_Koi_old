@@ -1,5 +1,5 @@
 import { PromoCode } from "@/components/dashboard/promo-code";
-import PromoCodePage from "@/components/dashboard/promo-code-page";
+// import PromoCodePage from "@/components/dashboard/promo-code-page";
 
 
 

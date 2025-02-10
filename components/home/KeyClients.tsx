@@ -1,13 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import img1 from "@/assests/keyicons/icon-1.svg"
-import img2 from "@/assests/keyicons/icon-2.svg"
-import img3 from "@/assests/keyicons/icon-3.svg"
-import img4 from "@/assests/keyicons/icon-4.svg"
-import img5 from "@/assests/keyicons/icon-5.svg"
-
-
+import img1 from "@/assests/keyicons/icon-1.svg";
+import img2 from "@/assests/keyicons/icon-2.svg";
+import img3 from "@/assests/keyicons/icon-3.svg";
+import img4 from "@/assests/keyicons/icon-4.svg";
+import img5 from "@/assests/keyicons/icon-5.svg";
 
 const clients = [
     { name: "Marico", src: img1, width: 120, height: 60 },
@@ -25,7 +23,8 @@ const KeyClients = () => {
                 Truck Koi is the logistics backbone for a lot of Bangladeshi small and large businesses. Some of our clients are enjoying up to 17% reduction in their transportation costs.
             </p>
 
-            <div className="flex justify-center items-center gap-8 mt-6 flex-wrap">
+            {/* Responsive Grid Layout */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 mt-6 justify-items-center">
                 {clients.map((client) => (
                     <div key={client.name} className="flex justify-center">
                         <Image src={client.src} alt={client.name} width={client.width} height={client.height} />
