@@ -1,0 +1,15 @@
+{
+    "header":{
+        "siteTitle": "Truck Koi",
+        "business": "Business",
+        "shipping": "Shipping",
+        "truckOwner": "Truck Owner",
+        "blog": "Blog",
+        "login": "Log In",
+        "yourMobileNumber": "Your Mobile Number",
+        "mobileNumber": "Mobile Number",
+        "enterMobileNumber": "Enter your mobile number",
+        "continue": "Continue"
+      }
+      
+}

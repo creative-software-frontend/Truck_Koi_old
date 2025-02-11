@@ -55,10 +55,11 @@ const Header = () => {
         </div>
 
         <div className="flex items-center gap-4 justify-end col-span-1">
-          <Button variant="outline" className="bg-white text-[#8B0000] hover:bg-gray-100 flex items-center" onClick={toggleLanguage}>
-            <Image src={language === "bangla" ? bangla : english} alt={language === "bangla" ? "Bangladesh" : "UK"} width={30} height={20} className="mr-2" />
-            {language === "bangla" ? "বাংলা" : "English"}
-          </Button>
+        <Button variant="outline" className="bg-white text-[#8B0000] hover:bg-gray-100" onClick={toggleLanguage}>
+        <span className={`${language === "bangla" ? "font-bold" : ""}`}>বাংলা</span>
+        <span className="mx-2 text-gray-300">|</span>
+        <span className={`${language === "english" ? "font-bold" : ""}`}>English</span>
+      </Button>
           <Button onClick={() => setIsLoginOpen(true)} className="bg-red-600 hover:bg-red-700 text-white">
             লগ ইন
           </Button>

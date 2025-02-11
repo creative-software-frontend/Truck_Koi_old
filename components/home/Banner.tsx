@@ -85,7 +85,7 @@ export default function Banner() {
                 {slide.buttonText}
               </Button>
             </div>
-            <div className="hidden md:block w-full md:w-1/2">
+            <div className="hidden md:block w-full md:w-1/2 mr-4">
               <TruckHire />
             </div>
           </div>

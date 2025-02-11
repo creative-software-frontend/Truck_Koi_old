@@ -17,10 +17,8 @@ export function MainNav() {
       <div className="flex h-16 items-center px-4 gap-4  mx-auto">
         {/* Logo & Beta tag */}
         <div className="flex items-center gap-2 flex-1 min-w-0">
-          <Image src={logo} className="h-8 w-12 min-w-[3rem]" alt="Logo" />
-          <Link href='/dashboard' className="text-sm font-medium bg-pink-100 text-pink-600 px-2 py-0.5 rounded">
-            Dashboard
-          </Link>
+          <Image src={logo} className="h-10 w-20 min-w-[3rem]" alt="Logo" />
+          
         </div>
 
         {/* Right Section */}

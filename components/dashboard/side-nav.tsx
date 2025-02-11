@@ -30,6 +30,9 @@ export function SideNav() {
 
         <div className="flex-1 py-2">
           <nav className="space-y-1 px-2">
+          <Link href='/dashboard' className="text-lg ml-4 font-medium bg-pink-100 text-pink-600 px-2 py-0.5 rounded">
+            Dashboard
+          </Link>
             <Link href="/dashboard/create-trip" className={menuItemClass("/dashboard/create-trip")}>
               <Plus className="h-5 w-5" />
               {sidebarOpen && "Create Trip"}
