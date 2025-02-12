@@ -1,0 +1,30 @@
+{
+    "header": {
+      "business": "Business",
+      "shipping": "Shipping",
+      "truckOwner": "Truck Owner",
+      "blog": "Blog",
+      "login": "Login",
+      "mobileNumber": "Your Mobile Number",
+      "mobileLabel": "Mobile Number",
+      "mobileNumberPlaceholder": "Enter your mobile number",
+      "proceed": "Proceed",
+      "brandName": "Truck Koi"
+    },
+    "home": {
+      "title": "Truck Koi",
+      "description": "Find your truck",
+      "banner": {
+        "title": "Find Trucks",
+        "subtitle": "Easy and Fast"
+      },
+      "whyTruckLagbe": {
+        "title": "Why Truck Lagbe?"
+      },
+      "howItWorks": {
+        "title": "How It Works"
+      }
+    }
+  }
+  
+  

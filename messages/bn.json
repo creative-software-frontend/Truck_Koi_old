@@ -1,0 +1,30 @@
+{
+    "header": {
+      "business": "ব্যবসা",
+      "shipping": "শিপিং",
+      "truckOwner": "ট্রাক ওনার",
+      "blog": "ব্লগ",
+      "login": "লগ ইন",
+      "mobileNumber": "আপনার মোবাইল নাম্বার",
+      "mobileLabel": "মোবাইল নাম্বার",
+      "mobileNumberPlaceholder": "আপনার মোবাইল নাম্বার",
+      "proceed": "এগিয়ে যান",
+      "brandName": "ট্রাক কই"
+    },
+    "home": {
+      "title": "ট্রাক কই",
+      "description": "আপনার ট্রাক খুঁজুন",
+      "banner": {
+        "title": "ট্রাক খুঁজুন",
+        "subtitle": "সহজে এবং দ্রুত"
+      },
+      "whyTruckLagbe": {
+        "title": "কেন ট্রাক লাগবে?"
+      },
+      "howItWorks": {
+        "title": "কিভাবে কাজ করে"
+      }
+    }
+  }
+  
+  
