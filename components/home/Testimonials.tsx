@@ -7,47 +7,21 @@ import { Button } from "@/components/ui/button"
 import img1 from "@/assests/review/icon-0 (1).webp"
 import img2 from "@/assests/review/icon-0.webp"
 import img3 from "@/assests/review/icon-4.webp"
+import { useTranslations } from "next-intl"
 
-const testimonials = [
-    {
-        id: 1,
-        quote: "Very satisfied with their professionalism and how everything was handled. Highly recommended!",
-        author: "Rakshanda Naz",
-        role: "",
-        avatar: img1,
-    },
-    {
-        id: 2,
-        quote: "Excellent service with a very affordable rate. Loved it.",
-        author: "Jay Chowdhury",
-        role: "Assistant Manager - Coca-Cola Beverages Bangladesh",
-        avatar: img2,
-    },
-    {
-        id: 3,
-        quote: "Truck Koi made home shifting hassle free. Their workers carried every piece of furniture very carefully.",
-        author: "Samin Farhan",
-        role: "IT Manager at Thermax Group Bangladesh",
-        avatar: img1,
-    },
-    {
-        id: 4,
-        quote: "Very professional service. Highly recommended for all kinds of truck rental needs.",
-        author: "Mohammad Rahman",
-        role: "Business Owner",
-        avatar: img2,
-    },
-    {
-        id: 5,
-        quote: "Best truck rental service in Bangladesh. Very reliable and professional.",
-        author: "Ahmed Khan",
-        role: "Logistics Manager",
-        avatar: img3,
-    },
-]
+const avatarImages = [img1, img2, img3, img2, img3];
 
 export default function Testimonials() {
     const [activeIndex, setActiveIndex] = useState(0)
+    const t = useTranslations("home");
+
+    const testimonials = t.raw("testimonials.items").map((item: any, index: number) => ({
+        id: index + 1,
+        quote: item.quote,
+        author: item.author,
+        role: item.role,
+        avatar: avatarImages[index % avatarImages.length]
+    }));
 
     const nextTestimonial = () => {
         setActiveIndex((prevIndex) => (prevIndex + 1) % testimonials.length)
@@ -61,7 +35,7 @@ export default function Testimonials() {
         <section className="bg-background text-foreground max-w-[1200px] mx-auto px-4 py-16">
             {/* Header */}
             <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-4xl font-bold mb-2">Our Customers Saying</h2>
+                <h2 className="text-3xl md:text-4xl font-bold mb-2">{t("testimonials.title")}</h2>
             </div>
 
             {/* Testimonials */}
@@ -92,10 +66,20 @@ export default function Testimonials() {
 
                 {/* Navigation Buttons */}
                 <div className="flex justify-center items-center gap-4 mt-8">
-                    <Button variant="outline" size="icon" onClick={prevTestimonial} aria-label="Previous testimonial">
+                    <Button 
+                        variant="outline" 
+                        size="icon" 
+                        onClick={prevTestimonial} 
+                        aria-label={t("testimonials.navigation.previous")}
+                    >
                         <ChevronLeft className="h-4 w-4" />
                     </Button>
-                    <Button variant="outline" size="icon" onClick={nextTestimonial} aria-label="Next testimonial">
+                    <Button 
+                        variant="outline" 
+                        size="icon" 
+                        onClick={nextTestimonial} 
+                        aria-label={t("testimonials.navigation.next")}
+                    >
                         <ChevronRight className="h-4 w-4" />
                     </Button>
                 </div>
@@ -106,9 +90,10 @@ export default function Testimonials() {
                         <button
                             key={index}
                             onClick={() => setActiveIndex(index)}
-                            className={`h-2 rounded-full transition-all duration-300 ${index === activeIndex ? "w-6 bg-primary" : "w-2 bg-muted"
-                                }`}
-                            aria-label={`View testimonial set ${index + 1}`}
+                            className={`h-2 rounded-full transition-all duration-300 ${
+                                index === activeIndex ? "w-6 bg-primary" : "w-2 bg-muted"
+                            }`}
+                            aria-label={`${t("testimonials.navigation.viewSet")} ${index + 1}`}
                         />
                     ))}
                 </div>

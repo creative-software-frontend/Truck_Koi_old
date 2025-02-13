@@ -16,13 +16,127 @@
       "description": "Find your truck",
       "banner": {
         "title": "Find Trucks",
-        "subtitle": "Easy and Fast"
+        "subtitle": "Easy and Fast",
+        "slides": [
+          {
+            "title": "Secure Delivery",
+            "subtitle": "Deliver your goods safely",
+            "buttonText": "Download App"
+          },
+          {
+            "title": "Fast Transport",
+            "subtitle": "Deliver your goods on time",
+            "buttonText": "Download App"
+          },
+          {
+            "title": "Easy Booking",
+            "subtitle": "Book a truck anytime",
+            "buttonText": "Download App"
+          }
+        ]
+      },
+      "truckHire": {
+        "title": "Hire Your Truck",
+        "loadLocation": {
+          "label": "Load location",
+          "placeholder": "Enter load location"
+        },
+        "unloadLocation": {
+          "label": "Unload location",
+          "placeholder": "Enter unload location"
+        },
+        "hireButton": "Hire Truck"
+      },
+      "testimonials": {
+        "title": "Our Customers Saying",
+        "items": [
+          {
+            "quote": "Very satisfied with their professionalism and how everything was handled. Highly recommended!",
+            "author": "Rakshanda Naz",
+            "role": ""
+          },
+          {
+            "quote": "Excellent service with a very affordable rate. Loved it.",
+            "author": "Jay Chowdhury",
+            "role": "Assistant Manager - Coca-Cola Beverages Bangladesh"
+          },
+          {
+            "quote": "Truck Koi made home shifting hassle free. Their workers carried every piece of furniture very carefully.",
+            "author": "Samin Farhan",
+            "role": "IT Manager at Thermax Group Bangladesh"
+          },
+          {
+            "quote": "Very professional service. Highly recommended for all kinds of truck rental needs.",
+            "author": "Mohammad Rahman",
+            "role": "Business Owner"
+          },
+          {
+            "quote": "Best truck rental service in Bangladesh. Very reliable and professional.",
+            "author": "Ahmed Khan",
+            "role": "Logistics Manager"
+          }
+        ],
+        "navigation": {
+          "previous": "Previous testimonial",
+          "next": "Next testimonial",
+          "viewSet": "View testimonial set"
+        }
+      },
+      "whyTruckKoi": {
+        "title": "Why Truck Koi?",
+        "subtitle": "The easiest way to hire your trucks",
+        "features": [
+          {
+            "title": "Fast Booking",
+            "description": "Book your trip in just a few seconds"
+          },
+          {
+            "title": "Best Rate",
+            "description": "Get the best fare on the market"
+          },
+          {
+            "title": "Secured Delivery",
+            "description": "Ensure the safest delivery of your products"
+          },
+          {
+            "title": "Verified Drivers",
+            "description": "Thousands of verified drivers are available"
+          }
+        ]
       },
       "whyTruckLagbe": {
         "title": "Why Truck Lagbe?"
       },
       "howItWorks": {
-        "title": "How It Works"
+        "title": "How it works",
+        "subtitle": "A simple and quick truck hiring process",
+        "steps": [
+          {
+            "title": "Download the app and sign up",
+            "content": "Install the Truck Koi app from the Google Play store. Then sign up in the app to start the seamless truck hiring process.",
+            "hasPlayStore": true
+          },
+          {
+            "title": "Choose your location",
+            "content": "Select your pickup and delivery locations to find available trucks in your area.",
+            "hasPlayStore": false
+          },
+          {
+            "title": "Choose the appropriate types of trucks",
+            "content": "Select from a wide range of trucks that best suits your transportation needs.",
+            "hasPlayStore": false
+          },
+          {
+            "title": "Choose date, time and other specifications",
+            "content": "Set your preferred schedule and any specific requirements for your delivery.",
+            "hasPlayStore": false
+          },
+          {
+            "title": "Publish your trip",
+            "content": "Confirm your booking details and publish your trip to find the right truck.",
+            "hasPlayStore": false
+          }
+        ]
       }
     }
   }

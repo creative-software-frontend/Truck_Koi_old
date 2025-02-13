@@ -6,39 +6,41 @@ import { ChevronLeft, ChevronRight, Download } from "lucide-react";
 import img1 from "@/assests/banner/home_banner_1.webp";
 import img2 from "@/assests/banner/home_banner_2.webp";
 import img3 from "@/assests/banner/home_banner_3.webp";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import TruckHire from "./TruckHire";
+import { useTranslations } from "next-intl";
 
-const bannerSlides = [
-  {
-    title: "সুরক্ষিত ডেলিভারি",
-    subtitle: "আপনার ডেলিভারি নিরাপদে পৌঁছে দিন",
-    image: img1,
-    buttonText: "অ্যাপ ডাউনলোড করুন",
-  },
-  {
-    title: "দ্রুত পরিবহন",
-    subtitle: "সময়মত আপনার মালামাল পৌঁছে দিন",
-    image: img2,
-    buttonText: "অ্যাপ ডাউনলোড করুন",
-  },
-  {
-    title: "সহজ বুকিং",
-    subtitle: "যেকোনো সময় ট্রাক বুক করুন",
-    image: img3,
-    buttonText: "অ্যাপ ডাউনলোড করুন",
-  },
-];
+interface BannerSlide {
+  title: string;
+  subtitle: string;
+  buttonText: string;
+  image: StaticImageData;
+}
+
+interface TranslatedSlide {
+  title: string;
+  subtitle: string;
+  buttonText: string;
+}
+
+const bannerImages = [img1, img2, img3];
 
 export default function Banner() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const t = useTranslations("home.banner");
+
+  const slides = t.raw("slides") as TranslatedSlide[];
+  const bannerSlides: BannerSlide[] = slides.map((slide, index) => ({
+    ...slide,
+    image: bannerImages[index],
+  }));
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % bannerSlides.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [bannerSlides.length]);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % bannerSlides.length);
@@ -52,7 +54,7 @@ export default function Banner() {
 
   return (
     <div className="relative h-[500px] overflow-hidden">
-      {bannerSlides.map((slide, index) => (
+      {bannerSlides.map((slide: BannerSlide, index: number) => (
         <div
           key={index}
           className={`absolute inset-0 transition-opacity duration-500 ${
@@ -62,7 +64,7 @@ export default function Banner() {
           {/* Background Image */}
           <Image
             src={slide.image || "/placeholder.svg"}
-            alt="Banner"
+            alt={slide.title}
             className="object-cover w-full h-full"
             layout="fill"
           />
@@ -71,8 +73,6 @@ export default function Banner() {
           <div className="absolute inset-0 bg-black bg-opacity-50"></div>
 
           <div className="mx-auto px-4 h-full flex items-center relative z-10">
-            {/* Left Content (TruckHire) */}
-
             {/* Right Content (Titles and Button) */}
             <div className="w-full md:w-1/2 text-white p-16">
               <h1 className="text-5xl font-bold mb-4">{slide.title}</h1>
@@ -94,7 +94,7 @@ export default function Banner() {
 
       {/* Dots */}
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
-        {bannerSlides.map((_, index) => (
+        {bannerSlides.map((_: BannerSlide, index: number) => (
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}

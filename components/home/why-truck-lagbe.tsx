@@ -1,46 +1,56 @@
+"use client"
+
 import Image from "next/image"
 import { Rocket, ThumbsUp, Shield, User } from "lucide-react"
 import enposter from "@/assests/banner/en-poster.webp"
+import { useTranslations } from "next-intl"
+import { ReactElement } from "react"
 
-const features = [
-    {
-        icon: <Rocket className="w-6 h-6 text-red-500" />,
-        title: "Fast Booking",
-        description: "Book your trip in just a few seconds",
-    },
-    {
-        icon: <ThumbsUp className="w-6 h-6 text-red-500" />,
-        title: "Best Rate",
-        description: "Get the best fare on the market",
-    },
-    {
-        icon: <Shield className="w-6 h-6 text-red-500" />,
-        title: "Secured Delivery",
-        description: "Ensure the safest delivery of your products",
-    },
-    {
-        icon: <User className="w-6 h-6 text-red-500" />,
-        title: "Verified Drivers",
-        description: "Thousands of verified drivers are available",
-    },
-]
+interface Feature {
+    title: string;
+    description: string;
+}
+
+interface FeatureWithIcon extends Feature {
+    icon: ReactElement;
+}
+
+interface RawFeature {
+    title: string;
+    description: string;
+}
+
+const icons = [
+    <Rocket key="rocket" className="w-6 h-6 text-red-500" />,
+    <ThumbsUp key="thumbs-up" className="w-6 h-6 text-red-500" />,
+    <Shield key="shield" className="w-6 h-6 text-red-500" />,
+    <User key="user" className="w-6 h-6 text-red-500" />
+];
 
 export default function WhyTruckLagbe() {
+    const t = useTranslations("home.whyTruckKoi");
+    const rawFeatures = t.raw("features") as RawFeature[];
+    
+    const features: FeatureWithIcon[] = rawFeatures.map((feature, index) => ({
+        icon: icons[index],
+        title: feature.title,
+        description: feature.description
+    }));
+
     return (
         <section className="container mx-auto px-4 py-16 max-w-7xl mx-auto">
             {/* Header */}
             <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Why Truck Koi?</h2>
-                <p className="text-gray-600 text-lg">The easiest way to hire your trucks</p>
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{t("title")}</h2>
+                <p className="text-gray-600 text-lg">{t("subtitle")}</p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
                 {/* Left Banner */}
                 <div className="relative w-full md:h-[470px] rounded-2xl overflow-hidden bg-gradient-to-b from-red-600 to-red-700">
-
                     <Image
                         src={enposter}
-                        alt="Truck Koi Service"
+                        alt={t("title")}
                         width={600}
                         height={400}
                         className="w-full h-auto object-contain"
