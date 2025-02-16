@@ -85,6 +85,16 @@
             "description": "You made 265 sales this month."
           }
         }
+      },
+      "trips": {
+        "tabs": {
+          "current": "Current Trip",
+          "history": "Trip History"
+        },
+        "emptyState": {
+          "title": "You don't have any trips at the moment",
+          "createButton": "Create New Trip"
+        }
       }
     },
     "home": {

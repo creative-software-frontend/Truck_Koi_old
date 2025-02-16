@@ -3,9 +3,11 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 export default function TripsPage() {
   const [activeTab, setActiveTab] = useState("current");
+  const t = useTranslations("dashboard.trips");
 
   return (
     <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -18,7 +20,7 @@ export default function TripsPage() {
             activeTab === "current" ? "text-red-600" : "text-gray-600"
           )}
         >
-          চলতি ট্রিপ
+          {t("tabs.current")}
           {activeTab === "current" && (
             <div className="absolute bottom-0 left-0 w-full h-0.5 bg-red-600" />
           )}
@@ -30,7 +32,7 @@ export default function TripsPage() {
             activeTab === "history" ? "text-red-600" : "text-gray-600"
           )}
         >
-          ট্রিপ হিস্টরি
+          {t("tabs.history")}
           {activeTab === "history" && (
             <div className="absolute bottom-0 left-0 w-full h-0.5 bg-red-600" />
           )}
@@ -47,13 +49,13 @@ export default function TripsPage() {
           /> */}
         </div>
         <h2 className="text-lg sm:text-xl text-gray-900 mb-6">
-          বর্তমানে আপনার কোনো ট্রিপ নেই
+          {t("emptyState.title")}
         </h2>
         <Link
           href="/dashboard/create-trip"
           className="bg-red-600 text-white px-5 sm:px-6 py-2 sm:py-2.5 rounded-md hover:bg-red-700 transition-colors"
         >
-          নতুন ট্রিপ তৈরি করুন
+          {t("emptyState.createButton")}
         </Link>
       </div>
     </div>
