@@ -6,11 +6,8 @@ import KeyClients from "@/components/home/KeyClients"
 import MobileApp from "@/components/home/MobileAppPromo"
 import Testimonials from "@/components/home/Testimonials"
 import WhyTruckLagbe from "@/components/home/why-truck-lagbe"
-import { useTranslations } from "next-intl"
 
 export default function Home() {
-  const t = useTranslations("home")
-  
   return (
     <div>
       <Header />

@@ -6,10 +6,12 @@ import { Button } from "@/components/ui/button"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { useTranslations } from "next-intl"
 
 export function SideNav() {
   const [sidebarOpen, setSidebarOpen] = useState(true)
   const pathname = usePathname()
+  const t = useTranslations("dashboard.sideNav")
 
   const isActive = (path: string) => pathname === path
 
@@ -25,27 +27,27 @@ export function SideNav() {
           className="lg:hidden absolute top-4 left-4"
           onClick={() => setSidebarOpen((prev) => !prev)}
         >
-          {sidebarOpen ? "Close" : "Open"}
+          {sidebarOpen ? t("toggleMenu.close") : t("toggleMenu.open")}
         </Button>
 
         <div className="flex-1 py-2">
           <nav className="space-y-1 px-2">
-          <Link href='/dashboard' className="text-lg ml-4 font-medium bg-pink-100 text-pink-600 px-2 py-0.5 rounded">
-            Dashboard
-          </Link>
+            <Link href='/dashboard' className="text-lg ml-4 font-medium bg-pink-100 text-pink-600 px-2 py-0.5 rounded">
+              {t("title")}
+            </Link>
             <Link href="/dashboard/create-trip" className={menuItemClass("/dashboard/create-trip")}>
               <Plus className="h-5 w-5" />
-              {sidebarOpen && "Create Trip"}
+              {sidebarOpen && t("menu.createTrip")}
             </Link>
 
             <Link href="/dashboard/mytrip" className={menuItemClass("/dashboard/mytrip")}>
               <Clock className="h-5 w-5" />
-              {sidebarOpen && "My Trips"}
+              {sidebarOpen && t("menu.myTrips")}
             </Link>
 
             <Link href="/dashboard/kamkoreni" className={menuItemClass("/dashboard/kamkoreni")}>
               <Ticket className="h-5 w-5" />
-              {sidebarOpen && "Promo Code"}
+              {sidebarOpen && t("menu.promoCode")}
             </Link>
 
             <Collapsible>
@@ -56,7 +58,7 @@ export function SideNav() {
                 >
                   <div className="flex items-center gap-x-2">
                     <Settings className="h-5 w-5" />
-                    {sidebarOpen && <span className="text-left flex-1">Settings</span>}
+                    {sidebarOpen && <span className="text-left flex-1">{t("menu.settings")}</span>}
                   </div>
                   {sidebarOpen && <ChevronDown className="h-4 w-4" />}
                 </Link>
@@ -66,19 +68,19 @@ export function SideNav() {
                   href="/dashboard/settings/generalsetting"
                   className={`w-full text-sm p-2 rounded-md ${isActive("/dashboard/settings/generalsetting") ? "bg-red-50 text-red-600" : ""}`}
                 >
-                  General Settings
+                  {t("menu.settingsSubmenu.general")}
                 </Link>
                 <Link
                   href="/dashboard/settings/addressbook"
                   className={`w-full text-sm p-2 rounded-md ${isActive("/dashboard/settings/addressbook") ? "bg-red-50 text-red-600" : ""}`}
                 >
-                  Address Book
+                  {t("menu.settingsSubmenu.addressBook")}
                 </Link>
                 <Link
                   href="/dashboard/settings/managedriver"
                   className={`w-full text-sm p-2 rounded-md ${isActive("/dashboard/settings/managedriver") ? "bg-red-50 text-red-600" : ""}`}
                 >
-                  Manage Driver
+                  {t("menu.settingsSubmenu.manageDriver")}
                 </Link>
               </CollapsibleContent>
             </Collapsible>
@@ -88,14 +90,14 @@ export function SideNav() {
         <div className="p-2 border-t">
           <div className="space-y-1">
             <div>
-              <h3 className="font-medium">{sidebarOpen && "Get the App"}</h3>
+              <h3 className="font-medium">{sidebarOpen && t("mobileApp.title")}</h3>
               <p className="text-sm text-muted-foreground">
-                {sidebarOpen && "Install the Truck Lagbe app for a better experience."}
+                {sidebarOpen && t("mobileApp.description")}
               </p>
             </div>
             <Button variant="outline" className="w-full gap-2">
               <Smartphone className="h-5 w-5" />
-              {sidebarOpen && "Install on Phone"}
+              {sidebarOpen && t("mobileApp.installButton")}
             </Button>
           </div>
         </div>

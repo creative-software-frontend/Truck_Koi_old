@@ -5,94 +5,97 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts"
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
 import { Activity, CreditCard, DollarSign, Users } from "lucide-react"
-
-const data = [
-  { name: "Group A", value: 400 },
-  { name: "Group B", value: 300 },
-  { name: "Group C", value: 300 },
-  { name: "Group D", value: 200 },
-]
+import { useTranslations } from "next-intl"
 
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"]
 
 export default function AdminDashboard() {
+  const t = useTranslations("dashboard.overview")
+
+  const data = [
+    { name: t("charts.overview.groups.groupA"), value: 400 },
+    { name: t("charts.overview.groups.groupB"), value: 300 },
+    { name: t("charts.overview.groups.groupC"), value: 300 },
+    { name: t("charts.overview.groups.groupD"), value: 200 },
+  ]
+
   return (
-    <div className=" w-full w-[1200px] mx-auto  ">
+    <div className="w-full w-[1200px] mx-auto">
       <div className="">
         <div className="flex items-center justify-between space-y-2">
-          <h2 className="text-3xl font-bold tracking-tight">Dashboard</h2>
+          <h2 className="text-3xl font-bold tracking-tight">{t("title")}</h2>
         </div>
         <Tabs defaultValue="overview" className="space-y-4">
           <TabsList>
-            <TabsTrigger value="overview">Overview</TabsTrigger>
-            <TabsTrigger value="analytics">Analytics</TabsTrigger>
-            <TabsTrigger value="reports">Reports</TabsTrigger>
+            <TabsTrigger value="overview">{t("tabs.overview")}</TabsTrigger>
+            <TabsTrigger value="analytics">{t("tabs.analytics")}</TabsTrigger>
+            <TabsTrigger value="reports">{t("tabs.reports")}</TabsTrigger>
           </TabsList>
           <TabsContent value="overview" className="space-y-4">
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                  <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>
+                  <CardTitle className="text-sm font-medium">{t("cards.revenue.title")}</CardTitle>
                   <DollarSign className="h-4 w-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">$45,231.89</div>
-                  <p className="text-xs text-muted-foreground">+20.1% from last month</p>
+                  <p className="text-xs text-muted-foreground">{t("cards.revenue.change")}</p>
                 </CardContent>
               </Card>
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                  <CardTitle className="text-sm font-medium">Subscriptions</CardTitle>
+                  <CardTitle className="text-sm font-medium">{t("cards.subscriptions.title")}</CardTitle>
                   <Users className="h-4 w-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">+2350</div>
-                  <p className="text-xs text-muted-foreground">+180.1% from last month</p>
+                  <p className="text-xs text-muted-foreground">{t("cards.subscriptions.change")}</p>
                 </CardContent>
               </Card>
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                  <CardTitle className="text-sm font-medium">Sales</CardTitle>
+                  <CardTitle className="text-sm font-medium">{t("cards.sales.title")}</CardTitle>
                   <CreditCard className="h-4 w-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">+12,234</div>
-                  <p className="text-xs text-muted-foreground">+19% from last month</p>
+                  <p className="text-xs text-muted-foreground">{t("cards.sales.change")}</p>
                 </CardContent>
               </Card>
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                  <CardTitle className="text-sm font-medium">Active Now</CardTitle>
+                  <CardTitle className="text-sm font-medium">{t("cards.activeNow.title")}</CardTitle>
                   <Activity className="h-4 w-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">+573</div>
-                  <p className="text-xs text-muted-foreground">+201 since last hour</p>
+                  <p className="text-xs text-muted-foreground">{t("cards.activeNow.change")}</p>
                 </CardContent>
               </Card>
             </div>
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
               <Card className="col-span-4">
                 <CardHeader>
-                  <CardTitle>Overview</CardTitle>
+                  <CardTitle>{t("charts.overview.title")}</CardTitle>
                 </CardHeader>
                 <CardContent className="pl-2 mb-4">
                   <ChartContainer
                     config={{
-                      "Group A": {
-                        label: "Group A",
+                      [t("charts.overview.groups.groupA")]: {
+                        label: t("charts.overview.groups.groupA"),
                         color: COLORS[0],
                       },
-                      "Group B": {
-                        label: "Group B",
+                      [t("charts.overview.groups.groupB")]: {
+                        label: t("charts.overview.groups.groupB"),
                         color: COLORS[1],
                       },
-                      "Group C": {
-                        label: "Group C",
+                      [t("charts.overview.groups.groupC")]: {
+                        label: t("charts.overview.groups.groupC"),
                         color: COLORS[2],
                       },
-                      "Group D": {
-                        label: "Group D",
+                      [t("charts.overview.groups.groupD")]: {
+                        label: t("charts.overview.groups.groupD"),
                         color: COLORS[3],
                       },
                     }}
@@ -121,8 +124,8 @@ export default function AdminDashboard() {
               </Card>
               <Card className="col-span-3">
                 <CardHeader>
-                  <CardTitle>Recent Activities</CardTitle>
-                  <CardDescription>You made 265 sales this month.</CardDescription>
+                  <CardTitle>{t("charts.activities.title")}</CardTitle>
+                  <CardDescription>{t("charts.activities.description")}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-8">

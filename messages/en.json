@@ -11,9 +11,96 @@
       "proceed": "Proceed",
       "brandName": "Truck Koi"
     },
+    "dashboard": {
+      "nav": {
+        "notifications": {
+          "title": "Notifications",
+          "newNotification": "New notification"
+        },
+        "profile": {
+          "editProfile": "Edit Profile",
+          "logout": "Logout"
+        }
+      },
+      "sideNav": {
+        "toggleMenu": {
+          "open": "Open",
+          "close": "Close"
+        },
+        "title": "Dashboard",
+        "menu": {
+          "createTrip": "Create Trip",
+          "myTrips": "My Trips",
+          "promoCode": "Promo Code",
+          "settings": "Settings",
+          "settingsSubmenu": {
+            "general": "General Settings",
+            "addressBook": "Address Book",
+            "manageDriver": "Manage Driver"
+          }
+        },
+        "mobileApp": {
+          "title": "Get the App",
+          "description": "Install the Truck Koi app for a better experience.",
+          "installButton": "Install on Phone"
+        }
+      },
+      "overview": {
+        "title": "Dashboard",
+        "tabs": {
+          "overview": "Overview",
+          "analytics": "Analytics",
+          "reports": "Reports"
+        },
+        "cards": {
+          "revenue": {
+            "title": "Total Revenue",
+            "change": "+20.1% from last month"
+          },
+          "subscriptions": {
+            "title": "Subscriptions",
+            "change": "+180.1% from last month"
+          },
+          "sales": {
+            "title": "Sales",
+            "change": "+19% from last month"
+          },
+          "activeNow": {
+            "title": "Active Now",
+            "change": "+201 since last hour"
+          }
+        },
+        "charts": {
+          "overview": {
+            "title": "Overview",
+            "groups": {
+              "groupA": "Group A",
+              "groupB": "Group B",
+              "groupC": "Group C",
+              "groupD": "Group D"
+            }
+          },
+          "activities": {
+            "title": "Recent Activities",
+            "description": "You made 265 sales this month."
+          }
+        }
+      }
+    },
     "home": {
       "title": "Truck Koi",
       "description": "Find your truck",
+      "mobileApp": {
+        "title": "Get The Most of Truck Koi\nWith Our Mobile App",
+        "description": "Download the Truck Koi mobile app for one-touch access to your trip experience. You will get access to special features and exclusive offers.",
+        "features": [
+          "Multiple location selection option",
+          "Fixed rate pickup rental within Dhaka city",
+          "Truck hiring for the whole day",
+          "Round-trip option"
+        ],
+        "imageAlt": "Truck Koi Mobile App Interface"
+      },
       "banner": {
         "title": "Find Trucks",
         "subtitle": "Easy and Fast",
@@ -32,6 +119,32 @@
             "title": "Easy Booking",
             "subtitle": "Book a truck anytime",
             "buttonText": "Download App"
+          }
+        ]
+      },
+      "keyClients": {
+        "title": "Our Key Clients",
+        "description": "Truck Koi is the logistics backbone for a lot of Bangladeshi small and large businesses. Some of our clients are enjoying up to 17% reduction in their transportation costs.",
+        "clients": [
+          {
+            "name": "Marico",
+            "alt": "Marico company logo"
+          },
+          {
+            "name": "Panda Mart",
+            "alt": "Panda Mart company logo"
+          },
+          {
+            "name": "Rangs",
+            "alt": "Rangs company logo"
+          },
+          {
+            "name": "Square",
+            "alt": "Square company logo"
+          },
+          {
+            "name": "Minister",
+            "alt": "Minister company logo"
           }
         ]
       },
@@ -110,6 +223,8 @@
       "howItWorks": {
         "title": "How it works",
         "subtitle": "A simple and quick truck hiring process",
+        "playStoreAlt": "Get it on Google Play",
+        "appInterfaceAlt": "Truck Koi App Interface",
         "steps": [
           {
             "title": "Download the app and sign up",
@@ -138,6 +253,96 @@
           }
         ]
       }
+    },
+    "footer": {
+      "categories": {
+        "title": "Truck Categories and Rates",
+        "pickup": {
+          "title": "Pickup Trucks",
+          "items": [
+            "7 feet 1 ton",
+            "9 feet 1.5 ton",
+            "12 feet 2 ton"
+          ]
+        },
+        "medium": {
+          "title": "Medium Size Trucks",
+          "items": [
+            "14 feet 3.5 ton",
+            "16 feet 7.5 ton"
+          ]
+        },
+        "large": {
+          "title": "Large Size Trucks",
+          "items": [
+            "18 feet 15 ton",
+            "20 feet 15 ton",
+            "20 feet 20 ton",
+            "20 feet 25 ton"
+          ]
+        },
+        "trailer": {
+          "title": "Trailer Trucks",
+          "items": [
+            "Flat-bed Trailer",
+            "Low-bed Trailer"
+          ]
+        },
+        "attachment": {
+          "title": "Truck Attachments",
+          "items": [
+            "Tata, Ashok Leyland, Isuzu, Mahindra, VAX, JMC, Eicher, Mitsubishi, Deckwerd, PON-F"
+          ]
+        }
+      },
+      "links": {
+        "services": {
+          "title": "Services",
+          "items": {
+            "shipper": "Shipper",
+            "business": "Business",
+            "shipping": "Shipping",
+            "truckOwner": "Truck Owner",
+            "faq": "FAQ"
+          }
+        },
+        "company": {
+          "title": "Company",
+          "items": {
+            "blog": "Blog",
+            "career": "Career",
+            "contact": "Contact Us",
+            "categories": "Truck Categories"
+          }
+        },
+        "rules": {
+          "title": "Rules",
+          "items": {
+            "termsShipper": "Terms - Shipper",
+            "termsOwner": "Terms - Truck Owner",
+            "privacy": "Privacy Policy"
+          }
+        },
+        "parts": {
+          "title": "Parts",
+          "items": {
+            "truckParts": "Truck Parts"
+          }
+        }
+      },
+      "contact": {
+        "title": "Contact",
+        "email": "customercare@truckkoi.com",
+        "phone": "+880 9638 000 000"
+      },
+      "download": {
+        "title": "Download Truck Koi App",
+        "shipper": "Shipper",
+        "truckOwner": "Truck Owner",
+        "playStoreAlt": "Get it on Google Play"
+      },
+      "copyright": "© 2025 Truck Koi Limited. All rights reserved",
+      "brandName": "Truck Koi"
     }
   }
   

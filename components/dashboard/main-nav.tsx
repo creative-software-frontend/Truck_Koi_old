@@ -9,9 +9,11 @@ import {
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import Image from "next/image";
 import logo from "@/assests/icon.png";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 export function MainNav() {
+  const t = useTranslations("dashboard.nav");
+
   return (
     <header className="border-b">
       <div className="flex h-16 items-center px-4 gap-4  mx-auto">
@@ -24,9 +26,17 @@ export function MainNav() {
         {/* Right Section */}
         <div className="flex items-center gap-4">
           {/* Notification Button */}
-          <Button variant="ghost" size="icon" className="relative">
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            className="relative"
+            aria-label={t("notifications.title")}
+          >
             <Bell className="h-5 w-5" />
-            <span className="absolute top-1.5 right-1.5 h-2 w-2 bg-red-500 rounded-full" />
+            <span 
+              className="absolute top-1.5 right-1.5 h-2 w-2 bg-red-500 rounded-full" 
+              aria-label={t("notifications.newNotification")}
+            />
           </Button>
 
           {/* Profile Dropdown */}
@@ -52,10 +62,10 @@ export function MainNav() {
                 </div>
               </div>
               <DropdownMenuItem>
-                <span>Edit Profile</span>
+                <span>{t("profile.editProfile")}</span>
               </DropdownMenuItem>
               <DropdownMenuItem className="text-red-600">
-                <span>Logout</span>
+                <span>{t("profile.logout")}</span>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

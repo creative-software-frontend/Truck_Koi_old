@@ -5,41 +5,26 @@ import Image from "next/image"
 import { Plus, Minus } from "lucide-react"
 import image from "@/assests/banner/poster-0-en.webp"
 import image2 from "@/assests/footer/google-play-badge.png"
+import { useTranslations } from "next-intl"
 
-const steps = [
-    {
-        title: "Download the app and sign up",
-        content:
-            "Install the Truck Lagbe app from the Google Play store. Then sign up in the app to start the seamless truck hiring process.",
-        hasPlayStore: true,
-    },
-    {
-        title: "Choose your location",
-        content: "",
-    },
-    {
-        title: "Choose the appropriate types of trucks",
-        content: "",
-    },
-    {
-        title: "Choose date, time and other specifications",
-        content: "",
-    },
-    {
-        title: "Publish your trip",
-        content: "",
-    },
-]
+interface Step {
+    title: string;
+    content: string;
+    hasPlayStore: boolean;
+}
 
 export default function HowItWorks() {
     const [openStep, setOpenStep] = useState(0)
+    const t = useTranslations("home.howItWorks");
+
+    const steps = t.raw("steps") as Step[];
 
     return (
         <section className="container mx-auto px-4 py-16 max-w-7xl ">
             {/* Header */}
             <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">How it works</h2>
-                <p className="text-gray-600">A simple and quick truck hiring process</p>
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{t("title")}</h2>
+                <p className="text-gray-600">{t("subtitle")}</p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 items-start">
@@ -73,7 +58,7 @@ export default function HowItWorks() {
                                         >
                                             <Image
                                                 src={image2}
-                                                alt="Get it on Google Play"
+                                                alt={t("playStoreAlt")}
                                                 width={162}
                                                 height={48}
                                                 className="h-12 w-auto"
@@ -87,10 +72,10 @@ export default function HowItWorks() {
                 </div>
 
                 {/* Right: Phone Mockup */}
-                <div className=" rounded-md ">
+                <div className="rounded-md">
                     <Image
                         src={image}
-                        alt="Truck Lagbe App Interface"
+                        alt={t("appInterfaceAlt")}
                         width={500}
                         height={900}
                         className="w-full h-auto rounded-lg"
