@@ -3,17 +3,19 @@
 import { Plus, X, Star, Map, List, Landmark } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useState, type ReactMouseEvent } from "react"; // Added ReactMouseEvent import
+import { useState, type MouseEvent } from "react";
 import { CascadingMenu } from "./CascadingMenu";
 import { PortMenu } from "./PortMenu";
 import { MapModal } from "./MapModal";
 import { AddressBookModal } from "./AddressBookModal";
+import { useTranslations } from "next-intl";
 
 export function CreateTripForm() {
+  const t = useTranslations("dashboard.createTrip");
   const [isAddressBookOpen, setIsAddressBookOpen] = useState(false);
 
   const [locations, setLocations] = useState([
-    { id: 1, label: "Enter a load Location", color: "red" },
+    { id: 1, label: t("locationDetails.load.label"), color: t("locationDetails.load.color") },
   ]);
   const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
   const [menuPosition, setMenuPosition] = useState({ top: 0, left: 0 });
@@ -29,8 +31,8 @@ export function CreateTripForm() {
       ...locations,
       {
         id: locations.length + 1,
-        label: "Enter an unload Location",
-        color: "green",
+        label: t("locationDetails.unload.label"),
+        color: t("locationDetails.unload.color"),
       },
     ]);
   };
@@ -43,7 +45,7 @@ export function CreateTripForm() {
   };
 
   const openDistrictMenu = (
-    event: ReactMouseEvent<HTMLButtonElement>,
+    event: MouseEvent<HTMLButtonElement>,
     index: number
   ) => {
     event.preventDefault();
@@ -59,7 +61,7 @@ export function CreateTripForm() {
   };
 
   const openPortMenu = (
-    event: ReactMouseEvent<HTMLButtonElement>,
+    event: MouseEvent<HTMLButtonElement>,
     index: number
   ) => {
     event.preventDefault();
@@ -108,33 +110,33 @@ export function CreateTripForm() {
 
   return (
     <div className="p-8 w-full max-w-2xl mx-auto">
-      <h1 className="text-2xl font-semibold mb-8">Create Your Trip</h1>
+      <h1 className="text-2xl font-semibold mb-8">{t("title")}</h1>
 
       {/* Progress Steps */}
       <div className="flex items-center gap-4 mb-8 flex-wrap">
         <div className="flex items-center gap-2">
           <div className="w-6 h-6 rounded-full bg-red-600 text-white flex items-center justify-center text-sm">
-            1
+            {t("steps.locations.step")}
           </div>
-          <span className="font-medium">Locations</span>
+          <span className="font-medium">{t("steps.locations.title")}</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="w-6 h-6 rounded-full border border-gray-300 text-gray-400 flex items-center justify-center text-sm">
-            2
+            {t("steps.selectTruck.step")}
           </div>
-          <span className="text-gray-400">Select Truck</span>
+          <span className="text-gray-400">{t("steps.selectTruck.title")}</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="w-6 h-6 rounded-full border border-gray-300 text-gray-400 flex items-center justify-center text-sm">
-            3
+            {t("steps.time.step")}
           </div>
-          <span className="text-gray-400">Time</span>
+          <span className="text-gray-400">{t("steps.time.title")}</span>
         </div>
       </div>
 
       {/* Location Details */}
       <div className="space-y-6">
-        <h2 className="text-lg font-semibold">Location Details</h2>
+        <h2 className="text-lg font-semibold">{t("locationDetails.title")}</h2>
 
         <div className="space-y-4">
           {locations.map((location, index) => (
@@ -176,7 +178,7 @@ export function CreateTripForm() {
                     onClick={() => setIsAddressBookOpen(true)}
                   >
                     <Star className="h-4 w-4" />
-                    অ্যাড্রেসবুক
+                    {t("locationOptions.addressBook")}
                   </Button>
 
                   <AddressBookModal
@@ -197,7 +199,7 @@ export function CreateTripForm() {
                     onClick={() => openMap(index)}
                   >
                     <Map className="h-4 w-4" />
-                    ম্যাপ
+                    {t("locationOptions.map")}
                   </Button>
                   <Button
                     variant="outline"
@@ -209,7 +211,7 @@ export function CreateTripForm() {
                     onClick={(e) => openDistrictMenu(e, index)}
                   >
                     <List className="h-4 w-4" />
-                    বিভাগ
+                    {t("locationOptions.division")}
                   </Button>
                   <Button
                     variant="outline"
@@ -221,7 +223,7 @@ export function CreateTripForm() {
                     onClick={(e) => openPortMenu(e, index)}
                   >
                     <Landmark className="h-4 w-4" />
-                    বন্দর
+                    {t("locationOptions.port")}
                   </Button>
                 </div>
               )}
@@ -235,7 +237,7 @@ export function CreateTripForm() {
           onClick={addLocation}
         >
           <Plus className="h-5 w-5 mr-2" />
-          Add Stop
+          {t("actions.addStop")}
         </Button>
       </div>
 

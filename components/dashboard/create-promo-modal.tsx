@@ -4,6 +4,7 @@ import { X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { useState } from "react"
+import { useTranslations } from "next-intl"
 
 interface CreatePromoModalProps {
   isOpen: boolean
@@ -13,6 +14,7 @@ interface CreatePromoModalProps {
 
 export function CreatePromoModal({ isOpen, onClose, onSubmit }: CreatePromoModalProps) {
   const [promoCode, setPromoCode] = useState("")
+  const t = useTranslations("dashboard.promoCode.modal")
 
   if (!isOpen) return null
 
@@ -34,19 +36,19 @@ export function CreatePromoModal({ isOpen, onClose, onSubmit }: CreatePromoModal
         </button>
 
         {/* Header */}
-        <h2 className="text-lg font-medium mb-6">প্রোমো যোগ করুন</h2>
+        <h2 className="text-lg font-medium mb-6">{t("title")}</h2>
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-6">
           <Input
-            placeholder="প্রোমো কোড লিখুন"
+            placeholder={t("placeholder")}
             value={promoCode}
             onChange={(e) => setPromoCode(e.target.value)}
             className="w-full"
           />
 
           <Button type="submit" className="w-full bg-[#FF4D6B] hover:bg-[#FF3557] text-white">
-            যোগ করুন
+            {t("submit")}
           </Button>
         </form>
       </div>

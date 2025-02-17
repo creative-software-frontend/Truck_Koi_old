@@ -4,6 +4,7 @@ import { useState } from "react"
 import { X, Search } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+import { useTranslations } from "next-intl"
 
 interface MapModalProps {
   isOpen: boolean
@@ -13,6 +14,7 @@ interface MapModalProps {
 
 export function MapModal({ isOpen, onClose, onSelect }: MapModalProps) {
   const [searchQuery, setSearchQuery] = useState("")
+  const t = useTranslations("dashboard.createTrip.mapView")
 
   if (!isOpen) return null
 
@@ -35,7 +37,7 @@ export function MapModal({ isOpen, onClose, onSelect }: MapModalProps) {
       <div className="bg-white rounded-lg w-full max-w-[800px] h-[90vh] max-h-[700px] flex flex-col">
         {/* Header */}
         <div className="flex justify-between items-center p-4 border-b">
-          <h3 className="text-lg font-medium">লোকেশন খুঁজে করুন</h3>
+          <h3 className="text-lg font-medium">{t("title")}</h3>
           <Button variant="ghost" size="icon" onClick={onClose}>
             <X className="h-5 w-5" />
           </Button>
@@ -46,7 +48,7 @@ export function MapModal({ isOpen, onClose, onSelect }: MapModalProps) {
           <form onSubmit={handleSearch} className="relative">
             <Input
               type="text"
-              placeholder="কোথায় যেতে চান?"
+              placeholder={t("searchPlaceholder")}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="pl-10 pr-4 py-2 w-full"
@@ -64,6 +66,7 @@ export function MapModal({ isOpen, onClose, onSelect }: MapModalProps) {
               height="100%"
               style={{ border: 0 }}
               loading="lazy"
+              title={t("title")}
             ></iframe>
           </div>
         </div>
@@ -71,7 +74,7 @@ export function MapModal({ isOpen, onClose, onSelect }: MapModalProps) {
         {/* Footer */}
         <div className="p-4 border-t">
           <Button onClick={handleSelect} className="w-full">
-            Select Location
+            {t("confirmLocation")}
           </Button>
         </div>
       </div>
