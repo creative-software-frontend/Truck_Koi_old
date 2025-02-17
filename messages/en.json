@@ -95,6 +95,85 @@
           "title": "You don't have any trips at the moment",
           "createButton": "Create New Trip"
         }
+      },
+      "createTrip": {
+        "title": "Create Your Trip",
+        "steps": {
+          "locations": {
+            "title": "Locations",
+            "step": "1"
+          },
+          "selectTruck": {
+            "title": "Select Truck",
+            "step": "2"
+          },
+          "time": {
+            "title": "Time",
+            "step": "3"
+          }
+        },
+        "locationDetails": {
+          "title": "Location Details",
+          "load": {
+            "label": "Enter a load Location",
+            "color": "red"
+          },
+          "unload": {
+            "label": "Enter an unload Location",
+            "color": "green"
+          }
+        },
+        "locationOptions": {
+          "addressBook": "Address Book",
+          "map": "Map",
+          "division": "Division",
+          "port": "Port"
+        },
+        "actions": {
+          "addStop": "Add Stop",
+          "remove": "Remove location"
+        },
+        "mapView": {
+          "title": "Map View",
+          "searchPlaceholder": "Search for a location",
+          "currentLocation": "Use Current Location",
+          "confirmLocation": "Confirm Location",
+          "dragMarker": "Drag the marker to adjust location",
+          "zoomIn": "Zoom in",
+          "zoomOut": "Zoom out"
+        }
+      },
+      "promoCode": {
+        "title": "Promo Code",
+        "emptyState": {
+          "title": "No Promo Code!",
+          "description": "Add a new promo code to save money"
+        },
+        "actions": {
+          "addPromo": "Add Promo Code"
+        },
+        "modal": {
+          "title": "Add Promo",
+          "placeholder": "Enter promo code",
+          "submit": "Add"
+        }
+      },
+      "settings": {
+        "title": "Settings",
+        "general": {
+          "title": "General Settings",
+          "description": "Manage your account settings and preferences"
+        },
+        "manageDriver": {
+          "title": "Manage Drivers",
+          "description": "Add and manage your trusted drivers",
+          "addButton": "Add New Driver",
+          "emptyState": {
+            "title": "No drivers added yet",
+            "description": "Add your trusted drivers to manage your deliveries efficiently",
+            "addFirstButton": "Add Your First Driver"
+          }
+        }
       }
     },
     "home": {

@@ -1,8 +1,10 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Plus, User } from "lucide-react"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 import { useTranslations } from 'next-intl'
+import { Plus, User } from "lucide-react"
 
 const ManageDriverPage = () => {
   const t = useTranslations('dashboard.settings.manageDriver')
@@ -44,4 +46,4 @@ const ManageDriverPage = () => {
   )
 }
 
-export default ManageDriverPage
+export default ManageDriverPage 

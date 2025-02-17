@@ -352,6 +352,85 @@
           "title": "বর্তমানে আপনার কোনো ট্রিপ নেই",
           "createButton": "নতুন ট্রিপ তৈরি করুন"
         }
+      },
+      "createTrip": {
+        "title": "আপনার ট্রিপ তৈরি করুন",
+        "steps": {
+          "locations": {
+            "title": "লোকেশন",
+            "step": "১"
+          },
+          "selectTruck": {
+            "title": "ট্রাক নির্বাচন করুন",
+            "step": "২"
+          },
+          "time": {
+            "title": "সময়",
+            "step": "৩"
+          }
+        },
+        "locationDetails": {
+          "title": "লোকেশন বিবরণ",
+          "load": {
+            "label": "লোড লোকেশন লিখুন",
+            "color": "red"
+          },
+          "unload": {
+            "label": "আনলোড লোকেশন লিখুন",
+            "color": "green"
+          }
+        },
+        "locationOptions": {
+          "addressBook": "অ্যাড্রেসবুক",
+          "map": "ম্যাপ",
+          "division": "বিভাগ",
+          "port": "বন্দর"
+        },
+        "actions": {
+          "addStop": "স্টপ যোগ করুন",
+          "remove": "লোকেশন মুছুন"
+        },
+        "mapView": {
+          "title": "ম্যাপ ভিউ",
+          "searchPlaceholder": "লোকেশন খুঁজুন",
+          "currentLocation": "বর্তমান লোকেশন ব্যবহার করুন",
+          "confirmLocation": "লোকেশন নিশ্চিত করুন",
+          "dragMarker": "লোকেশন সামঞ্জস্য করতে মার্কার টেনে আনুন",
+          "zoomIn": "জুম ইন",
+          "zoomOut": "জুম আউট"
+        }
+      },
+      "promoCode": {
+        "title": "প্রোমো কোড",
+        "emptyState": {
+          "title": "কোনো প্রোমো কোড নেই!",
+          "description": "টাকা সাশ্রয় করতে নতুন প্রোমো কোড যোগ করুন"
+        },
+        "actions": {
+          "addPromo": "প্রোমো কোড যোগ করুন"
+        },
+        "modal": {
+          "title": "প্রোমো যোগ করুন",
+          "placeholder": "প্রোমো কোড লিখুন",
+          "submit": "যোগ করুন"
+        }
+      },
+      "settings": {
+        "title": "সেটিংস",
+        "general": {
+          "title": "সাধারণ সেটিংস",
+          "description": "আপনার অ্যাকাউন্ট সেটিংস এবং পছন্দসমূহ পরিচালনা করুন"
+        },
+        "manageDriver": {
+          "title": "ড্রাইভার ব্যবস্থাপনা",
+          "description": "আপনার বিশ্বস্ত ড্রাইভারদের যোগ করুন এবং পরিচালনা করুন",
+          "addButton": "নতুন ড্রাইভার যোগ করুন",
+          "emptyState": {
+            "title": "এখনও কোন ড্রাইভার যোগ করা হয়নি",
+            "description": "আপনার ডেলিভারি দক্ষতার সাথে পরিচালনা করতে বিশ্বস্ত ড্রাইভার যোগ করুন",
+            "addFirstButton": "আপনার প্রথম ড্রাইভার যোগ করুন"
+          }
+        }
       }
     }
   }

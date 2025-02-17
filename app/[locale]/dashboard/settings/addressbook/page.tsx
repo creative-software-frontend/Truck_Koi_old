@@ -1,11 +1,13 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Plus, User } from "lucide-react"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 import { useTranslations } from 'next-intl'
+import { Plus } from "lucide-react"
 
-const ManageDriverPage = () => {
-  const t = useTranslations('dashboard.settings.manageDriver')
+const AddressBookPage = () => {
+  const t = useTranslations('dashboard.settings')
 
   return (
     <div className="container mx-auto py-8">
@@ -14,27 +16,27 @@ const ManageDriverPage = () => {
           {/* Header */}
           <div className="flex justify-between items-center">
             <div>
-              <h1 className="text-2xl font-bold mb-2">{t('title')}</h1>
-              <p className="text-gray-600">{t('description')}</p>
+              <h1 className="text-2xl font-bold mb-2">Address Book</h1>
+              <p className="text-gray-600">Manage your frequently used addresses</p>
             </div>
             <Button className="bg-red-600 hover:bg-red-700 text-white">
               <Plus className="w-5 h-5 mr-2" />
-              {t('addButton')}
+              Add New Address
             </Button>
           </div>
 
-          {/* Driver List */}
+          {/* Address List */}
           <div className="bg-white rounded-lg shadow p-6">
             {/* Empty State */}
             <div className="text-center py-12">
               <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <User className="w-8 h-8 text-gray-400" />
+                <Plus className="w-8 h-8 text-gray-400" />
               </div>
-              <h3 className="text-lg font-medium mb-2">{t('emptyState.title')}</h3>
-              <p className="text-gray-600 mb-4">{t('emptyState.description')}</p>
+              <h3 className="text-lg font-medium mb-2">No addresses yet</h3>
+              <p className="text-gray-600 mb-4">Add your frequently used addresses for quick access</p>
               <Button className="bg-red-600 hover:bg-red-700 text-white">
                 <Plus className="w-5 h-5 mr-2" />
-                {t('emptyState.addFirstButton')}
+                Add Your First Address
               </Button>
             </div>
           </div>
@@ -44,4 +46,4 @@ const ManageDriverPage = () => {
   )
 }
 
-export default ManageDriverPage
+export default AddressBookPage 

@@ -5,15 +5,22 @@ import { Clock, Plus, Settings, Ticket, Smartphone, ChevronDown } from "lucide-r
 import { Button } from "@/components/ui/button"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { usePathname, useParams } from "next/navigation"
 import { useTranslations } from "next-intl"
 
 export function SideNav() {
   const [sidebarOpen, setSidebarOpen] = useState(true)
   const pathname = usePathname()
+  const params = useParams()
+  const locale = params.locale as string
   const t = useTranslations("dashboard.sideNav")
 
-  const isActive = (path: string) => pathname === path
+  const isActive = (path: string) => {
+    if (path.includes('/settings')) {
+      return pathname.includes('/settings')
+    }
+    return pathname === path
+  }
 
   const menuItemClass = (path: string) =>
     `w-full justify-start gap-2 flex items-center p-2 rounded-md ${isActive(path) ? "bg-red-50 text-red-600" : ""}`
@@ -32,20 +39,20 @@ export function SideNav() {
 
         <div className="flex-1 py-2">
           <nav className="space-y-1 px-2">
-            <Link href='/dashboard' className="text-lg ml-4 font-medium bg-pink-100 text-pink-600 px-2 py-0.5 rounded">
+            <Link href={`/${locale}/dashboard`} className="text-lg ml-4 font-medium bg-pink-100 text-pink-600 px-2 py-0.5 rounded">
               {t("title")}
             </Link>
-            <Link href="/dashboard/create-trip" className={menuItemClass("/dashboard/create-trip")}>
+            <Link href={`/${locale}/dashboard/create-trip`} className={menuItemClass(`/${locale}/dashboard/create-trip`)}>
               <Plus className="h-5 w-5" />
               {sidebarOpen && t("menu.createTrip")}
             </Link>
 
-            <Link href="/dashboard/mytrip" className={menuItemClass("/dashboard/mytrip")}>
+            <Link href={`/${locale}/dashboard/mytrip`} className={menuItemClass(`/${locale}/dashboard/mytrip`)}>
               <Clock className="h-5 w-5" />
               {sidebarOpen && t("menu.myTrips")}
             </Link>
 
-            <Link href="/dashboard/kamkoreni" className={menuItemClass("/dashboard/kamkoreni")}>
+            <Link href={`/${locale}/dashboard/kamkoreni`} className={menuItemClass(`/${locale}/dashboard/kamkoreni`)}>
               <Ticket className="h-5 w-5" />
               {sidebarOpen && t("menu.promoCode")}
             </Link>
@@ -53,8 +60,8 @@ export function SideNav() {
             <Collapsible>
               <CollapsibleTrigger asChild>
                 <Link
-                  href="/dashboard/settings"
-                  className={`${menuItemClass("/dashboard/settings")} ${sidebarOpen ? "justify-between" : "justify-center"}`}
+                  href={`/${locale}/dashboard/settings`}
+                  className={`${menuItemClass(`/${locale}/dashboard/settings`)} ${sidebarOpen ? "justify-between" : "justify-center"}`}
                 >
                   <div className="flex items-center gap-x-2">
                     <Settings className="h-5 w-5" />
@@ -65,20 +72,20 @@ export function SideNav() {
               </CollapsibleTrigger>
               <CollapsibleContent className="px-4 py-2 space-y-2 flex flex-col">
                 <Link
-                  href="/dashboard/settings/generalsetting"
-                  className={`w-full text-sm p-2 rounded-md ${isActive("/dashboard/settings/generalsetting") ? "bg-red-50 text-red-600" : ""}`}
+                  href={`/${locale}/dashboard/settings/general`}
+                  className={`w-full text-sm p-2 rounded-md ${isActive(`/${locale}/dashboard/settings/general`) ? "bg-red-50 text-red-600" : ""}`}
                 >
                   {t("menu.settingsSubmenu.general")}
                 </Link>
                 <Link
-                  href="/dashboard/settings/addressbook"
-                  className={`w-full text-sm p-2 rounded-md ${isActive("/dashboard/settings/addressbook") ? "bg-red-50 text-red-600" : ""}`}
+                  href={`/${locale}/dashboard/settings/addressbook`}
+                  className={`w-full text-sm p-2 rounded-md ${isActive(`/${locale}/dashboard/settings/addressbook`) ? "bg-red-50 text-red-600" : ""}`}
                 >
                   {t("menu.settingsSubmenu.addressBook")}
                 </Link>
                 <Link
-                  href="/dashboard/settings/managedriver"
-                  className={`w-full text-sm p-2 rounded-md ${isActive("/dashboard/settings/managedriver") ? "bg-red-50 text-red-600" : ""}`}
+                  href={`/${locale}/dashboard/settings/managedriver`}
+                  className={`w-full text-sm p-2 rounded-md ${isActive(`/${locale}/dashboard/settings/managedriver`) ? "bg-red-50 text-red-600" : ""}`}
                 >
                   {t("menu.settingsSubmenu.manageDriver")}
                 </Link>
